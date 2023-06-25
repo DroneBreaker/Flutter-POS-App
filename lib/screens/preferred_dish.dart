@@ -1,10 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:restaurant_pos_app/config/colors.dart';
+import 'package:restaurant_pos_app/screens/widgets/bg.dart';
 
 class PrefDishScreen extends StatelessWidget {
   const PrefDishScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Stack(
+        children: [
+          ClipPath(
+            clipper: BgD(),
+            child: Container(
+              width: double.infinity,
+              height: 705.h,
+              color: AppColor.PrimaryLightColor,
+            ),
+          ),
+          ClipPath(
+            clipper: BgD(),
+            child: Container(
+              width: double.infinity,
+              height: 651.h,
+              color: AppColor.PrimaryColor,
+            ),
+          ),
+          SafeArea(
+              child: Container(
+                  child: Column(
+            children: [
+              
+            ],
+          )))
+        ],
+      ),
+    );
   }
 }
