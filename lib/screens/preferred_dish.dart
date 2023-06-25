@@ -54,8 +54,10 @@ class PrefDishScreen extends StatelessWidget {
                           color: AppColor.white),
                     ),
                     Gap(25.h),
-                    Button1("Local Dishes", AppImages.local_icon, () {}),
-                    Gap(30.h),
+                    Button1("Local Dishes", AppImages.local_icon, () {
+                      Navigator.pushNamed(context, "/dish_period");
+                    }),
+                    Gap(35.h),
                     Button1("Continental Dishes", AppImages.continental_icon,
                         () {}),
                   ],

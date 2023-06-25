@@ -5,16 +5,17 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colors.dart';
 
-Widget Button1(String title, String Icon, Function() callback) {
+Widget Button1(String title, String Icon, Function() callback,
+    [bool check = false]) {
   return TextButton(
     onPressed: callback,
     style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(AppColor.white),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)))),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)))),
     child: SizedBox(
       height: 40.h,
-      width: 254.w,
+      width: check ? 159.w : 254.w,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -28,8 +29,8 @@ Widget Button1(String title, String Icon, Function() callback) {
           Text(
             title,
             style: GoogleFonts.inter(
-                fontWeight: FontWeight.w400,
-                fontSize: 16.sp,
+                fontWeight: check ? FontWeight.w600 : FontWeight.w400,
+                fontSize: check ? 13.sp : 16.sp,
                 color: AppColor.black),
           ),
         ],
