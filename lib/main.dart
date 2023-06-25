@@ -44,11 +44,11 @@ class MyApp extends StatelessWidget {
                   800: Color(0xFFD39E12),
                   900: Color(0xFFD39E12),
                 }),
-                textTheme: TextTheme(
+                textTheme: const TextTheme(
                   displayLarge: TextStyle(color: Colors.black),
                   displayMedium: TextStyle(color: Colors.black),
                   bodyMedium: TextStyle(color: Colors.black),
-                  titleMedium: const TextStyle(color: Colors.black),
+                  titleMedium: TextStyle(color: Colors.black),
                 ),
               ),
               initialRoute: "/",

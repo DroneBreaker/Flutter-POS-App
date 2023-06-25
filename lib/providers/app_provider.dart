@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 class AppProvider with ChangeNotifier {
-  // String studentName = "";
+  String appStage = "";
 
-  // void setStep1({
-  //   required String userFirstName,
+  void setAppStage({
+    required String appStage,
+  }) {
+    this.appStage = appStage;
 
-  // }) {
-  //   this.userFirstName = userFirstName;
+    notifyListeners();
+  }
 
-  //   notifyListeners();
-  // }
+  
 }
