@@ -1,3 +1,3 @@
 class AppImages {
-  static String logo = 'assets/images/UNI.png';
+  static String qr = 'assets/images/qrcode.png';
 }
