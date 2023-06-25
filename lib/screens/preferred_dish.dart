@@ -15,7 +15,7 @@ class PrefDishScreen extends StatelessWidget {
             clipper: BgD(),
             child: Container(
               width: double.infinity,
-              height: 705.h,
+              height: 605.h,
               color: AppColor.PrimaryLightColor,
             ),
           ),
@@ -23,7 +23,7 @@ class PrefDishScreen extends StatelessWidget {
             clipper: BgD(),
             child: Container(
               width: double.infinity,
-              height: 651.h,
+              height: 551.h,
               color: AppColor.PrimaryColor,
             ),
           ),
