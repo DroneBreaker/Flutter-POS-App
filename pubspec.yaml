@@ -36,6 +36,12 @@ flutter:
 
   assets:
     - assets/images/qrcode.png
+    - assets/images/breakfast_icon.png
+    - assets/images/carte_icon.png
+    - assets/images/dinner_icon.png
+    - assets/images/local_icon.png
+    - assets/images/lunch_icon.png
+    - assets/images/user_icon.png
     
 
   
