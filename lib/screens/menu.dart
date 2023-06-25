@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_pos/widgets/app-text.dart';
+import 'package:restaurant_pos_app/widgets/app-text.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
