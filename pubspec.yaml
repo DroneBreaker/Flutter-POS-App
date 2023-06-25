@@ -35,8 +35,13 @@ flutter:
   uses-material-design: true
 
   assets:
+<<<<<<< HEAD
     - assets/images/qrcode.png
     
+=======
+    - assets/images/
+  
+>>>>>>> 123491cae06fd562707b19811b8eb431b1f4e09d
 
   
   # fonts:
