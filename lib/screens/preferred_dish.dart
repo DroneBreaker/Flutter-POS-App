@@ -27,13 +27,56 @@ class PrefDishScreen extends StatelessWidget {
               color: AppColor.PrimaryColor,
             ),
           ),
+
+          // Body of the page
           SafeArea(
               child: Container(
+                  padding: EdgeInsets.only(top: 259.h - 54.h),
+                  width: double.infinity,
                   child: Column(
-            children: [
-              
-            ],
-          )))
+                    children: [
+                      const Icon(
+                        Icons.person,
+                        size: 40,
+                        color: AppColor.white,
+                      ),
+                      const Text('Choose Your Preferred Dish'),
+                      const SizedBox(
+                        height: 60,
+                      ),
+
+                      //Buttons
+                      ElevatedButton(
+                          onPressed: () {
+                            return;
+                          },
+                          child: const Row(
+                            children: [
+                              Icon(Icons.room_service),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text('Local Dishes')
+                            ],
+                          )),
+                      ElevatedButton(
+                          onPressed: () {
+                            return;
+                          },
+                          // style: ButtonStyle(backgroundColor: AppColor.white),
+                          child: const Row(
+                            children: [
+                              Icon(Icons.local_dining),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                'Continental Dishes',
+                              )
+                            ],
+                          )),
+                    ],
+                  )))
         ],
       ),
     );

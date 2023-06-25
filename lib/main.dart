@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:restaurant_pos_app/screens/preferred_dish.dart';
 import 'package:restaurant_pos_app/utils/route.dart';
 
 import 'providers/app_provider.dart';
@@ -55,7 +56,7 @@ class MyApp extends StatelessWidget {
               onGenerateRoute: GenerateRoute.onGenerateRoute,
             ));
       },
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      child: const PrefDishScreen(),
     );
   }
 }
