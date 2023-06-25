@@ -1,6 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
+<<<<<<< HEAD
         android:label="restaurant_pos"
+=======
+        android:label="restaurant_pos_app"
+>>>>>>> 5fa1727540f525f8d709eeff24a507e4b909f727
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
