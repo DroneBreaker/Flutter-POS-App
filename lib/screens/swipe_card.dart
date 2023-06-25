@@ -51,10 +51,14 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
                           color: AppColor.white),
                     ),
                     Gap(48.h),
-                    Image.asset(
-                      AppImages.qr,
-                      width: 136.w,
-                      height: 138.h,
+                    GestureDetector(
+                      onTap: () =>
+                          {Navigator.pushNamed(context, "/pref_dish_screen")},
+                      child: Image.asset(
+                        AppImages.qr,
+                        width: 136.w,
+                        height: 138.h,
+                      ),
                     ),
                     Gap(29.h),
                     Text(

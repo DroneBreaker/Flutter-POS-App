@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_pos_app/screens/swipe_card.dart';
 
+import '../screens/preferred_dish.dart';
+
 class GenerateRoute {
   //onGenerateRoute init
   static Route? onGenerateRoute(RouteSettings settings) {
@@ -10,6 +12,8 @@ class GenerateRoute {
     switch (pagePath) {
       case "/":
         return MaterialPageRoute(builder: (_) => const SwipeCardScreen());
+      case "/pref_dish_screen":
+        return MaterialPageRoute(builder: (_) => const PrefDishScreen());
 
       default:
         return MaterialPageRoute(builder: (_) => const SwipeCardScreen());
