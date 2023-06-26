@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_pos_app/screens/success.dart';
+import 'package:restaurant_pos_app/screens/error.dart';
 import 'package:restaurant_pos_app/screens/swipe_card.dart';
 
 import '../screens/dish_period.dart';
@@ -13,7 +13,7 @@ class GenerateRoute {
 
     switch (pagePath) {
       case "/":
-        return MaterialPageRoute(builder: (_) => const SuccessPage());
+        return MaterialPageRoute(builder: (_) => const ErrorPage());
       case "/pref_dish_screen":
         return MaterialPageRoute(builder: (_) => const PrefDishScreen());
       case "/dish_period":

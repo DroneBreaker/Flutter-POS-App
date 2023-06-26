@@ -43,7 +43,7 @@ class ErrorPage extends StatelessWidget {
                 height: 40,
               ),
 
-              // Success message
+              // Error message
               Container(
                 height: 360,
                 width: 320,
@@ -63,7 +63,7 @@ class ErrorPage extends StatelessWidget {
                       height: 40,
                     ),
                     Image.asset(
-                      AppImages.verified_icon,
+                      AppImages.access_denied,
                       width: 76.w,
                       height: 78.h,
                     ),
@@ -72,26 +72,36 @@ class ErrorPage extends StatelessWidget {
                     ),
                     Center(
                       child: Text(
-                        'THANK YOU',
+                        'ACCESS DENIED',
                         style: GoogleFonts.inter(
                             fontWeight: FontWeight.w800,
                             fontSize: 25.sp,
-                            color: Colors.green),
+                            color: Colors.red.shade600),
                       ),
                     ),
                     const SizedBox(
                       height: 30,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 40),
+                      padding: const EdgeInsets.only(left: 30, right: 20),
                       child: Center(
                         child: Text(
-                          'Please wait for your coupon to be printed',
+                          'Please you don\'t have permission to Order, please TRY again',
                           style: GoogleFonts.inter(
-                              fontSize: 22.sp, color: AppColor.black),
+                              fontSize: 16.sp, color: AppColor.black),
                         ),
                       ),
                     ),
+                    const SizedBox(
+                      height: 35,
+                    ),
+                    TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Go Back',
+                          style: GoogleFonts.inter(
+                              fontSize: 14, color: Colors.green),
+                        ))
                   ],
                 ),
               ),
