@@ -7,4 +7,6 @@ class AppImages {
   static String lunch_icon = 'assets/images/lunch_icon.png';
   static String dinner_icon = 'assets/images/dinner_icon.png';
   static String carte_icon = 'assets/images/carte_icon.png';
+  static String verified_icon = 'assets/images/black_verified.png';
+  static String access_denied = 'assets/images/user_cancel.png';
 }
