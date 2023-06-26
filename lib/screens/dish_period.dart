@@ -59,11 +59,11 @@ class DishPeriodScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Button1("Breakfast", AppImages.breakfast_icon, () {
-                          Navigator.pushNamed(context, "/dish_period");
+                          Navigator.pushNamed(context, "/home_page");
                         }, true),
                         Gap(18.w),
                         Button1("Lunch", AppImages.lunch_icon, () {
-                          Navigator.pushNamed(context, "/dish_period");
+                          // Navigator.pushNamed(context, "/dish_period");
                         }, true)
                       ],
                     ),
@@ -73,11 +73,11 @@ class DishPeriodScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Button1("Dinner", AppImages.dinner_icon, () {
-                          Navigator.pushNamed(context, "/dish_period");
+                          // Navigator.pushNamed(context, "/dish_period");
                         }, true),
                         Gap(18.w),
                         Button1("Ala Carte", AppImages.carte_icon, () {
-                          Navigator.pushNamed(context, "/dish_period");
+                          // Navigator.pushNamed(context, "/dish_period");
                         }, true),
                       ],
                     ),

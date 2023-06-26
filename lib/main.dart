@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
             ],
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
-              title: 'Smart Attendance AI',
+              title: 'Restuarant App',
 
               // You can use the library anywhere in the app even in theme
               theme: ThemeData(
