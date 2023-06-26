@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant_pos_app/config/colors.dart';
 import 'package:restaurant_pos_app/config/images.dart';
 import 'package:restaurant_pos_app/screens/widgets/bg.dart';
+import 'package:restaurant_pos_app/screens/widgets/bottom_nav.dart';
 
 class SuccessPage extends StatelessWidget {
   const SuccessPage({super.key});
@@ -11,6 +12,7 @@ class SuccessPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: SizedBox(height: 94.h, child: bottomNav()),
       body: Stack(
         children: [
           ClipPath(
