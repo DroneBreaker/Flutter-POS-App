@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
               onGenerateRoute: GenerateRoute.onGenerateRoute,
             ));
       },
-      // child: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // child: const SuccessPage(),
     );
   }
 }

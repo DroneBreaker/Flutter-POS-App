@@ -26,10 +26,6 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-<<<<<<< HEAD
-=======
-
->>>>>>> 123491cae06fd562707b19811b8eb431b1f4e09d
     namespace "com.restaurant_pos.restaurant_pos_app"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
@@ -49,10 +45,6 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-<<<<<<< HEAD
-=======
-
->>>>>>> 123491cae06fd562707b19811b8eb431b1f4e09d
         applicationId "com.restaurant_pos.restaurant_pos_app"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
