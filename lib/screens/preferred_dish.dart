@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurant_pos_app/config/colors.dart';
-import 'package:restaurant_pos_app/screens/widgets/bg.dart';
+import 'package:gap/gap.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../config/colors.dart';
+import '../config/images.dart';
+import 'widgets/bg.dart';
+import 'widgets/buttons.dart';
 
 class PrefDishScreen extends StatelessWidget {
   const PrefDishScreen({super.key});
@@ -9,76 +14,57 @@ class PrefDishScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          ClipPath(
-            clipper: BgD(),
-            child: Container(
-              width: double.infinity,
-              height: 605.h,
-              color: AppColor.PrimaryLightColor,
-            ),
-          ),
-          ClipPath(
-            clipper: BgD(),
-            child: Container(
-              width: double.infinity,
-              height: 551.h,
-              color: AppColor.PrimaryColor,
-            ),
-          ),
-
-          // Body of the page
-          SafeArea(
+        appBar: null,
+        extendBodyBehindAppBar: true,
+        body: Stack(
+          children: [
+            ClipPath(
+              clipper: BgD(),
               child: Container(
-                  padding: EdgeInsets.only(top: 259.h - 54.h),
-                  width: double.infinity,
-                  child: Column(
-                    children: [
-                      const Icon(
-                        Icons.person,
-                        size: 40,
-                        color: AppColor.white,
-                      ),
-                      const Text('Choose Your Preferred Dish'),
-                      const SizedBox(
-                        height: 60,
-                      ),
-
-                      //Buttons
-                      ElevatedButton(
-                          onPressed: () {
-                            return;
-                          },
-                          child: const Row(
-                            children: [
-                              Icon(Icons.room_service),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text('Local Dishes')
-                            ],
-                          )),
-                      ElevatedButton(
-                          onPressed: () {
-                            return;
-                          },
-                          // style: ButtonStyle(backgroundColor: AppColor.white),
-                          child: const Row(
-                            children: [
-                              Icon(Icons.local_dining),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                'Continental Dishes',
-                              )
-                            ],
-                          )),
-                    ],
-                  )))
-        ],
-      ),
-    );
+                width: double.infinity,
+                height: 705.h,
+                color: AppColor.PrimaryLightColor,
+              ),
+            ),
+            ClipPath(
+              clipper: BgD(),
+              child: Container(
+                width: double.infinity,
+                height: 651.h,
+                color: AppColor.PrimaryColor,
+              ),
+            ),
+            SafeArea(
+              child: Container(
+                padding: EdgeInsets.only(top: 259.h - 54.h),
+                width: double.infinity,
+                child: Column(
+                  children: [
+                    Image.asset(
+                      AppImages.user_icon,
+                      width: 58.w,
+                      height: 46.h,
+                    ),
+                    Gap(29.h),
+                    Text(
+                      "Choose your preferred Dish",
+                      style: GoogleFonts.inter(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16.sp,
+                          color: AppColor.white),
+                    ),
+                    Gap(25.h),
+                    Button1("Local Dishes", AppImages.local_icon, () {
+                      Navigator.pushNamed(context, "/dish_period");
+                    }),
+                    Gap(35.h),
+                    Button1("Continental Dishes", AppImages.continental_icon,
+                        () {}),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ));
   }
 }
