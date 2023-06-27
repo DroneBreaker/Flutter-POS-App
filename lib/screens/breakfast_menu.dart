@@ -61,7 +61,7 @@ class _BreakfastMenuScreenState extends State<BreakfastMenuScreen> {
               height: double.infinity,
               child: ListView.builder(
                   padding: EdgeInsets.zero,
-                  itemCount: 100,
+                  itemCount: 6,
                   itemBuilder: (BuildContext context, int index) {
                     return FoodWidget(
                         "Breakfast Wrap",
