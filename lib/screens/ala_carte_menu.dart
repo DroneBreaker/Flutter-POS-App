@@ -76,15 +76,15 @@ class _AlaCarteMenuScreenState extends State<AlaCarteMenuScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Button1("Option 1", AppImages.dinner_icon, () {
+                        Button1("Starter", AppImages.dinner_icon, () {
                           // Navigator.pushNamed(context, "/dish_period");
                         }, true),
                         Gap(18.h),
-                        Button1("Option 2", AppImages.carte_icon, () {
+                        Button1("Main Course", AppImages.carte_icon, () {
                           Navigator.pushNamed(context, "/ala_carte_menu");
                         }, true),
                         Gap(18.h),
-                        Button1("Option 3", AppImages.carte_icon, () {
+                        Button1("Dessert", AppImages.carte_icon, () {
                           Navigator.pushNamed(context, "/ala_carte_menu");
                         }, true),
                       ],

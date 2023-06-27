@@ -76,7 +76,7 @@ class DishPeriodScreen extends StatelessWidget {
                           // Navigator.pushNamed(context, "/dish_period");
                         }, true),
                         Gap(18.w),
-                        Button1("Ala Carte", AppImages.carte_icon, () {
+                        Button1("`Ala Carte", AppImages.carte_icon, () {
                           Navigator.pushNamed(context, "/ala_carte_menu");
                         }, true),
                       ],
