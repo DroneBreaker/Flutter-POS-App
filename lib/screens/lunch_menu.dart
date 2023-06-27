@@ -60,7 +60,7 @@ class _LunchMenuScreenState extends State<LunchMenuScreen> {
                     ),
                     Gap(25.h),
                     Button1("Chinese Dishes", AppImages.local_icon, () {
-                      Navigator.pushNamed(context, "/dish_period");
+                      Navigator.pushNamed(context, "/chinese_dish");
                     }),
                     Gap(30.h),
                     Button1("Local Dishes", AppImages.local_icon, () {
