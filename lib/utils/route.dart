@@ -5,6 +5,8 @@ import 'package:restaurant_pos_app/screens/dinner_menu.dart';
 import 'package:restaurant_pos_app/screens/error.dart';
 import 'package:restaurant_pos_app/screens/local_dishes.dart';
 import 'package:restaurant_pos_app/screens/lunch_menu.dart';
+import 'package:restaurant_pos_app/screens/preorder/batch_order.dart';
+import 'package:restaurant_pos_app/screens/preorder/single_order.dart';
 import 'package:restaurant_pos_app/screens/success.dart';
 import 'package:restaurant_pos_app/screens/swipe_card.dart';
 
@@ -22,6 +24,14 @@ class GenerateRoute {
     switch (pagePath) {
       case "/":
         return MaterialPageRoute(builder: (_) => const SwipeCardScreen());
+
+      // Single order page
+      case "/single_order":
+        return MaterialPageRoute(builder: (_) => const SingleOrderScreen());
+
+      // Single order page
+      case "/batch_order":
+        return MaterialPageRoute(builder: (_) => const BatchOrderScreen());
 
       case "/dish_period":
         return MaterialPageRoute(builder: (_) => const DishPeriodScreen());

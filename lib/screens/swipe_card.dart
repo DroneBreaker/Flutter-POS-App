@@ -32,15 +32,21 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
                             onPressed: () {
                               Navigator.pushNamed(context, '/single_order');
                             },
-                            child: TextButton(
-                                onPressed: () {
-                                  Navigator.pushNamed(context, '/batch_order');
-                                },
-                                child: Text('Single Order'))),
+                            child: Text(
+                              'Single Order',
+                              style: GoogleFonts.inter(),
+                            )),
                       ),
-                      const PopupMenuItem<int>(
+                      PopupMenuItem<int>(
                         value: 1,
-                        child: Text('Batch Order'),
+                        child: TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/batch_order');
+                            },
+                            child: Text(
+                              'Batch Order',
+                              style: GoogleFonts.inter(),
+                            )),
                       ),
                     ]),
           ],
