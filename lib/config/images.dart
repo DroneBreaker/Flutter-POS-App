@@ -11,4 +11,7 @@ class AppImages {
   static String access_denied = 'assets/images/user_cancel.png';
   static String header_image_breakfast =
       'assets/images/header_image_breakfast.png';
+  static String breakfast_image = 'assets/images/breakfast_image.png';
+  static String add = 'assets/images/add.png';
+  static String added = 'assets/images/added.png';
 }

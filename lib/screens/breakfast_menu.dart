@@ -48,13 +48,13 @@ class _BreakfastMenuScreenState extends State<BreakfastMenuScreen> {
                 ),
               ],
             ),
-            Gap(30.h),
+            Gap(20.h),
             Image.asset(
               AppImages.header_image_breakfast,
               width: double.infinity,
               fit: BoxFit.cover,
-              // height: 38.h,
             ),
+            Gap(30.h),
             Expanded(
                 child: SizedBox(
               width: double.infinity,
@@ -64,10 +64,10 @@ class _BreakfastMenuScreenState extends State<BreakfastMenuScreen> {
                   itemCount: 100,
                   itemBuilder: (BuildContext context, int index) {
                     return FoodWidget(
-                      "Breakfast Wrap",
-                      "2 Eggs, Sausage Slices, Baked Beans small portion fries Served with Tea",
-                      AppImages.breakfast_icon,
-                    );
+                        "Breakfast Wrap",
+                        "2 Eggs, Sausage Slices, Baked Beans small portion fries Served with Tea",
+                        AppImages.breakfast_image,
+                        index);
                   }),
             ))
           ],
