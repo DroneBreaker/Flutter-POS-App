@@ -2,15 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:restaurant_pos_app/config/colors.dart';
+import 'package:restaurant_pos_app/config/images.dart';
+import 'package:restaurant_pos_app/screens/widgets/bg.dart';
+import 'package:restaurant_pos_app/screens/widgets/buttons.dart';
 
-import '../config/colors.dart';
-import '../config/images.dart';
-import 'widgets/bg.dart';
-import 'widgets/buttons.dart';
+class AlaCarteMenuScreen extends StatefulWidget {
+  const AlaCarteMenuScreen({super.key});
 
-class DishPeriodScreen extends StatelessWidget {
-  const DishPeriodScreen({super.key});
+  @override
+  State<AlaCarteMenuScreen> createState() => _AlaCarteMenuScreenState();
+}
 
+class _AlaCarteMenuScreenState extends State<AlaCarteMenuScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,35 +57,39 @@ class DishPeriodScreen extends StatelessWidget {
                           fontSize: 16.sp,
                           color: AppColor.white),
                     ),
-                    Gap(70.h),
-                    Row(
+                    // Gap(70.h),
+                    // Row(
+                    //   crossAxisAlignment: CrossAxisAlignment.center,
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   children: [
+                    //     Button1("Breakfast", AppImages.breakfast_icon, () {
+                    //       Navigator.pushNamed(context, "/success_page");
+                    //     }, true),
+                    //     Gap(18.w),
+                    //     Button1("Lunch", AppImages.lunch_icon, () {
+                    //       Navigator.pushNamed(context, "/lunch_menu");
+                    //     }, true)
+                    //   ],
+                    // ),
+                    Gap(20.h),
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Button1("Breakfast", AppImages.breakfast_icon, () {
-                          Navigator.pushNamed(context, "/success_page");
-                        }, true),
-                        Gap(18.w),
-                        Button1("Lunch", AppImages.lunch_icon, () {
-                          Navigator.pushNamed(context, "/lunch_menu");
-                        }, true)
-                      ],
-                    ),
-                    Gap(18.w),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Button1("Dinner", AppImages.dinner_icon, () {
+                        Button1("Option 1", AppImages.dinner_icon, () {
                           // Navigator.pushNamed(context, "/dish_period");
                         }, true),
-                        Gap(18.w),
-                        Button1("Ala Carte", AppImages.carte_icon, () {
+                        Gap(18.h),
+                        Button1("Option 2", AppImages.carte_icon, () {
+                          Navigator.pushNamed(context, "/ala_carte_menu");
+                        }, true),
+                        Gap(18.h),
+                        Button1("Option 3", AppImages.carte_icon, () {
                           Navigator.pushNamed(context, "/ala_carte_menu");
                         }, true),
                       ],
                     ),
-                    Gap(50.h),
+                    Gap(40.h),
                     Text(
                       "Find the Best Food Around You",
                       style: GoogleFonts.inter(

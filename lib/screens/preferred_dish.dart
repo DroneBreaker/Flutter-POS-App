@@ -63,7 +63,9 @@ class PrefDishScreen extends StatelessWidget {
                     }),
                     Gap(30.h),
                     Button1("Continental Dishes", AppImages.continental_icon,
-                        () {}),
+                        () {
+                      // Navigator.pushNamed(context, '/ala_carte_menu');
+                    }),
                   ],
                 ),
               ),

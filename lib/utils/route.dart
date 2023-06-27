@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant_pos_app/screens/ala_carte_menu.dart';
 import 'package:restaurant_pos_app/screens/error.dart';
 import 'package:restaurant_pos_app/screens/lunch_menu.dart';
 import 'package:restaurant_pos_app/screens/success.dart';
@@ -35,6 +36,10 @@ class GenerateRoute {
       // BreakfastMenuPage
       case "/lunch_menu":
         return MaterialPageRoute(builder: (_) => const LunchMenuScreen());
+
+      // Ala Carte Menu
+      case '/ala_carte_menu':
+        return MaterialPageRoute(builder: (_) => const AlaCarteMenuScreen());
 
       // Error page
       case "/ErrorPage":
