@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant_pos_app/config/colors.dart';
 import 'package:restaurant_pos_app/config/images.dart';
 import 'package:restaurant_pos_app/screens/widgets/bg.dart';
+import 'package:restaurant_pos_app/screens/widgets/bottom_nav.dart';
 
 class SuccessPage extends StatelessWidget {
   const SuccessPage({super.key});
@@ -11,6 +12,7 @@ class SuccessPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: bottomNav(context),
       body: Stack(
         children: [
           ClipPath(
@@ -21,14 +23,6 @@ class SuccessPage extends StatelessWidget {
               color: AppColor.PrimaryColor,
             ),
           ),
-          // ClipPath(
-          //   clipper: BgD(),
-          //   child: Container(
-          //     width: double.infinity,
-          //     height: 351.h,
-          //     color: AppColor.white,
-          //   ),
-          // ),
           SafeArea(
               child: Container(
             padding: EdgeInsets.only(top: 179.h - 54.h),
@@ -101,4 +95,5 @@ class SuccessPage extends StatelessWidget {
       ),
     );
   }
+  // 
 }

@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant_pos_app/config/colors.dart';
 import 'package:restaurant_pos_app/config/images.dart';
 import 'package:restaurant_pos_app/screens/widgets/bg.dart';
+import 'package:restaurant_pos_app/screens/widgets/bottom_nav.dart';
 
 class ErrorPage extends StatelessWidget {
   const ErrorPage({super.key});
@@ -11,6 +12,7 @@ class ErrorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: bottomNav(context),
       body: Stack(
         children: [
           ClipPath(
