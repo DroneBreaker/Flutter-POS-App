@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_pos_app/screens/ala_carte_menu.dart';
 import 'package:restaurant_pos_app/screens/chinese_dishes.dart';
+import 'package:restaurant_pos_app/screens/dinner_menu.dart';
 import 'package:restaurant_pos_app/screens/error.dart';
 import 'package:restaurant_pos_app/screens/local_dishes.dart';
 import 'package:restaurant_pos_app/screens/lunch_menu.dart';
 import 'package:restaurant_pos_app/screens/success.dart';
 import 'package:restaurant_pos_app/screens/swipe_card.dart';
 
-import '../screens/breakfast_menu.dart';
+// import '../screens/breakfast_menu.dart';
 import '../screens/dish_period.dart';
 import '../screens/home_page.dart';
 import '../screens/preferred_dish.dart';
@@ -35,9 +36,13 @@ class GenerateRoute {
       // case "/breakfast_menu":
       // return MaterialPageRoute(builder: (_) => const BreakfastMenuScreen());
 
-      // BreakfastMenuPage
+      // LunchMenuPage
       case "/lunch_menu":
         return MaterialPageRoute(builder: (_) => const LunchMenuScreen());
+
+      // Dinner menu page
+      case "/dinner_menu":
+        return MaterialPageRoute(builder: (_) => const DinnerMenuScreen());
 
       // Ala Carte Menu
       case '/ala_carte_menu':
