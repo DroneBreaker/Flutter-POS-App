@@ -51,26 +51,12 @@ class _AlaCarteMenuScreenState extends State<AlaCarteMenuScreen> {
                     ),
                     Gap(40.h),
                     Text(
-                      "Choose your preferred Dish",
+                      "Choose your preferred Option",
                       style: GoogleFonts.inter(
                           fontWeight: FontWeight.w400,
                           fontSize: 16.sp,
                           color: AppColor.white),
                     ),
-                    // Gap(70.h),
-                    // Row(
-                    //   crossAxisAlignment: CrossAxisAlignment.center,
-                    //   mainAxisAlignment: MainAxisAlignment.center,
-                    //   children: [
-                    //     Button1("Breakfast", AppImages.breakfast_icon, () {
-                    //       Navigator.pushNamed(context, "/success_page");
-                    //     }, true),
-                    //     Gap(18.w),
-                    //     Button1("Lunch", AppImages.lunch_icon, () {
-                    //       Navigator.pushNamed(context, "/lunch_menu");
-                    //     }, true)
-                    //   ],
-                    // ),
                     Gap(20.h),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
