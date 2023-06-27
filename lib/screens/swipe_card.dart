@@ -24,7 +24,7 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
             PopupMenuButton(
                 iconSize: 35,
                 icon: const Icon(Icons.menu),
-                color: AppColor.white,
+                color: AppColor.black,
                 itemBuilder: (context) => [
                       PopupMenuItem<int>(
                         value: 0,
