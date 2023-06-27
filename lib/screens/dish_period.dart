@@ -59,7 +59,7 @@ class DishPeriodScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Button1("Breakfast", AppImages.breakfast_icon, () {
-                          Navigator.pushNamed(context, "/home_page");
+                          Navigator.pushNamed(context, "/breakfast_menu");
                         }, true),
                         Gap(18.w),
                         Button1("Lunch", AppImages.lunch_icon, () {

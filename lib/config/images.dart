@@ -9,4 +9,6 @@ class AppImages {
   static String carte_icon = 'assets/images/carte_icon.png';
   static String verified_icon = 'assets/images/black_verified.png';
   static String access_denied = 'assets/images/user_cancel.png';
+  static String header_image_breakfast =
+      'assets/images/header_image_breakfast.png';
 }

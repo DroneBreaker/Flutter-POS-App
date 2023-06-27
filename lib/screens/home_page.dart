@@ -14,7 +14,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: SizedBox(height: 94.h, child: bottomNav()),
+      bottomNavigationBar:bottomNav(context),
     );
   }
 }
