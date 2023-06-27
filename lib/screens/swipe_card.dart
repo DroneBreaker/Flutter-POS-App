@@ -17,7 +17,34 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: null,
+        appBar: AppBar(
+          elevation: 0,
+          actions: [
+            // Popup menu
+            PopupMenuButton(
+                iconSize: 35,
+                icon: const Icon(Icons.menu),
+                color: AppColor.white,
+                itemBuilder: (context) => [
+                      PopupMenuItem<int>(
+                        value: 0,
+                        child: TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/single_order');
+                            },
+                            child: TextButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/batch_order');
+                                },
+                                child: Text('Single Order'))),
+                      ),
+                      const PopupMenuItem<int>(
+                        value: 1,
+                        child: Text('Batch Order'),
+                      ),
+                    ]),
+          ],
+        ),
         extendBodyBehindAppBar: true,
         body: Stack(
           children: [
@@ -39,7 +66,7 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
             ),
             SafeArea(
               child: Container(
-                padding: EdgeInsets.only(top: 259.h - 54.h),
+                padding: EdgeInsets.only(top: 229.h - 54.h),
                 width: double.infinity,
                 child: Column(
                   children: [

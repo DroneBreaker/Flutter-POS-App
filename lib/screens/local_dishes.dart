@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant_pos_app/config/images.dart';
 
 import '../config/colors.dart';
-import 'widgets/bottom_nav.dart';
+// import 'widgets/bottom_nav.dart';
 import 'widgets/food_widget.dart';
 
 class LocalMenuScreen extends StatefulWidget {
@@ -73,7 +73,7 @@ class _LocalMenuScreenState extends State<LocalMenuScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: bottomNav(context),
+      // bottomNavigationBar: bottomNav(context),
     );
   }
 }
