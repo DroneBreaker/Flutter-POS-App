@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_pos_app/screens/error.dart';
+import 'package:restaurant_pos_app/screens/success.dart';
 import 'package:restaurant_pos_app/screens/swipe_card.dart';
 
 import '../screens/breakfast_menu.dart';
@@ -27,6 +28,9 @@ class GenerateRoute {
       // BreakfastMenuPage
       case "/ErrorPage":
         return MaterialPageRoute(builder: (_) => const ErrorPage());
+      case "/success_page":
+        return MaterialPageRoute(builder: (_) => const SuccessPage());
+
       default:
         return MaterialPageRoute(builder: (_) => const SwipeCardScreen());
     }
