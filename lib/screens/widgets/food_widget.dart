@@ -9,10 +9,11 @@ import '../../config/colors.dart';
 import '../../config/images.dart';
 
 class FoodWidget extends StatefulWidget {
-  final title;
-  final description;
-  final image;
-  final id;
+  final String title;
+  final String description;
+  final String image;
+  final int id;
+
   const FoodWidget(this.title, this.description, this.image, this.id,
       {super.key});
 

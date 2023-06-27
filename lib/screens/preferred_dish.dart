@@ -36,7 +36,7 @@ class PrefDishScreen extends StatelessWidget {
             ),
             SafeArea(
               child: Container(
-                padding: EdgeInsets.only(top: 259.h - 54.h),
+                padding: EdgeInsets.only(top: 219.h - 54.h),
                 width: double.infinity,
                 child: Column(
                   children: [
@@ -54,10 +54,14 @@ class PrefDishScreen extends StatelessWidget {
                           color: AppColor.white),
                     ),
                     Gap(25.h),
+                    Button1("Chinese Dishes", AppImages.local_icon, () {
+                      Navigator.pushNamed(context, "/dish_period");
+                    }),
+                    Gap(30.h),
                     Button1("Local Dishes", AppImages.local_icon, () {
                       Navigator.pushNamed(context, "/dish_period");
                     }),
-                    Gap(35.h),
+                    Gap(30.h),
                     Button1("Continental Dishes", AppImages.continental_icon,
                         () {}),
                   ],

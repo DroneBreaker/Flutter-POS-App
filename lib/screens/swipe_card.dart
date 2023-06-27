@@ -44,7 +44,7 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
                 child: Column(
                   children: [
                     Text(
-                      "Hello !",
+                      "Hello!",
                       style: GoogleFonts.inter(
                           fontWeight: FontWeight.w800,
                           fontSize: 36.sp,
@@ -53,7 +53,7 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
                     Gap(48.h),
                     GestureDetector(
                       onTap: () =>
-                          {Navigator.pushNamed(context, "/pref_dish_screen")},
+                          {Navigator.pushNamed(context, "/dish_period")},
                       child: Image.asset(
                         AppImages.qr,
                         width: 136.w,

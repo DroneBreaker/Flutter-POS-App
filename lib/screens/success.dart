@@ -23,14 +23,6 @@ class SuccessPage extends StatelessWidget {
               color: AppColor.PrimaryColor,
             ),
           ),
-          // ClipPath(
-          //   clipper: BgD(),
-          //   child: Container(
-          //     width: double.infinity,
-          //     height: 351.h,
-          //     color: AppColor.white,
-          //   ),
-          // ),
           SafeArea(
               child: Container(
             padding: EdgeInsets.only(top: 179.h - 54.h),
@@ -103,4 +95,5 @@ class SuccessPage extends StatelessWidget {
       ),
     );
   }
+  // 
 }
