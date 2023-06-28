@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant_pos_app/config/colors.dart';
 import 'package:restaurant_pos_app/config/images.dart';
@@ -16,10 +17,10 @@ class SuccessPage extends StatelessWidget {
       body: Stack(
         children: [
           ClipPath(
-            clipper: BgD(),
+            clipper: BgD1(),
             child: Container(
               width: double.infinity,
-              height: 405.h,
+              height: 495.h,
               color: AppColor.PrimaryColor,
             ),
           ),
@@ -33,58 +34,52 @@ class SuccessPage extends StatelessWidget {
               //   width: 136.w,
               //   height: 138.h,
               // ),
-              const SizedBox(
-                height: 40,
+              Gap(
+                40.h,
               ),
-
+              Image.asset(
+                AppImages.dot,
+                width: 73.w,
+                height: 73.h,
+              ),
               // Success message
               Container(
-                height: 360,
-                width: 320,
+                height: 310.h,
+                width: 330.w,
                 decoration: BoxDecoration(
                     color: AppColor.white,
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
-                          color: Colors.grey.shade600,
+                          color: Color.fromARGB(36, 117, 117, 117),
                           spreadRadius: 2,
                           blurRadius: 10,
-                          offset: const Offset(0, 10))
+                          offset: Offset(0, 10))
                     ],
                     borderRadius: BorderRadius.circular(40)),
                 child: Column(
                   children: [
-                    const SizedBox(
-                      height: 40,
-                    ),
+                    Gap(40.h),
                     Image.asset(
                       AppImages.verified_icon,
-                      width: 76.w,
-                      height: 78.h,
+                      width: 73.w,
+                      height: 73.h,
                     ),
-                    const SizedBox(
-                      height: 25,
-                    ),
+                    Gap(25.h),
                     Center(
                       child: Text(
                         'THANK YOU',
                         style: GoogleFonts.inter(
                             fontWeight: FontWeight.w800,
-                            fontSize: 25.sp,
+                            fontSize: 24.sp,
                             color: Colors.green),
                       ),
                     ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 40),
-                      child: Center(
-                        child: Text(
-                          'Please wait for your coupon to be printed',
-                          style: GoogleFonts.inter(
-                              fontSize: 22.sp, color: AppColor.black),
-                        ),
-                      ),
+                    Gap(20.h),
+                    Text(
+                      'Please wait for your\n coupon to be printed',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.inter(
+                          fontSize: 16.sp, color: AppColor.black),
                     ),
                   ],
                 ),
@@ -95,5 +90,5 @@ class SuccessPage extends StatelessWidget {
       ),
     );
   }
-  // 
+  //
 }

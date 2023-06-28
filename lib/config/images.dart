@@ -14,4 +14,5 @@ class AppImages {
   static String breakfast_image = 'assets/images/breakfast_image.png';
   static String add = 'assets/images/add.png';
   static String added = 'assets/images/added.png';
+  static String dot = 'assets/images/dots.png';
 }
