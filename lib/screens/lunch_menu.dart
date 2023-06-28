@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant_pos_app/config/images.dart';
+import 'package:restaurant_pos_app/screens/widgets/bg.dart';
+import 'package:restaurant_pos_app/screens/widgets/buttons.dart';
 
 import '../config/colors.dart';
-import 'widgets/bottom_nav.dart';
-import 'widgets/food_widget.dart';
 
 class LunchMenuScreen extends StatefulWidget {
   const LunchMenuScreen({super.key});
@@ -19,61 +19,63 @@ class _LunchMenuScreenState extends State<LunchMenuScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: null,
-      extendBodyBehindAppBar: true,
-      body: Container(
-        color: AppColor.BgColor,
-        padding: EdgeInsets.only(top: 91.h),
-        width: double.infinity,
-        height: double.infinity,
-        child: Column(
+        appBar: null,
+        extendBodyBehindAppBar: true,
+        body: Stack(
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  AppImages.breakfast_icon,
-                  width: 36.w,
-                  height: 38.h,
-                  fit: BoxFit.cover,
-                ),
-                Gap(10.w),
-                Text(
-                  "Lunch Menu",
-                  style: GoogleFonts.inter(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 20.sp,
-                      color: AppColor.black),
-                ),
-              ],
+            ClipPath(
+              clipper: BgD(),
+              child: Container(
+                width: double.infinity,
+                height: 705.h,
+                color: AppColor.PrimaryLightColor,
+              ),
             ),
-            Gap(20.h),
-            Image.asset(
-              AppImages.header_image_breakfast,
-              width: double.infinity,
-              fit: BoxFit.cover,
+            ClipPath(
+              clipper: BgD(),
+              child: Container(
+                width: double.infinity,
+                height: 651.h,
+                color: AppColor.PrimaryColor,
+              ),
             ),
-            Gap(30.h),
-            Expanded(
-                child: SizedBox(
-              width: double.infinity,
-              height: double.infinity,
-              child: ListView.builder(
-                  padding: EdgeInsets.zero,
-                  itemCount: 6,
-                  itemBuilder: (BuildContext context, int index) {
-                    return FoodWidget(
-                        "Lunch Wrap",
-                        "2 Eggs, Sausage Slices, Baked Beans small portion fries Served with Tea",
-                        AppImages.breakfast_image,
-                        index);
-                  }),
-            ))
+            SafeArea(
+              child: Container(
+                padding: EdgeInsets.only(top: 219.h - 54.h),
+                width: double.infinity,
+                child: Column(
+                  children: [
+                    Image.asset(
+                      AppImages.user_icon,
+                      width: 58.w,
+                      height: 46.h,
+                    ),
+                    Gap(29.h),
+                    Text(
+                      "Choose your preferred Dish",
+                      style: GoogleFonts.inter(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16.sp,
+                          color: AppColor.white),
+                    ),
+                    Gap(25.h),
+                    Button1("Chinese Dishes", AppImages.local_icon, () {
+                      Navigator.pushNamed(context, "/chinese_dish");
+                    }),
+                    Gap(30.h),
+                    Button1("Local Dishes", AppImages.local_icon, () {
+                      Navigator.pushNamed(context, "/dish_period");
+                    }),
+                    Gap(30.h),
+                    Button1("Continental Dishes", AppImages.continental_icon,
+                        () {
+                      // Navigator.pushNamed(context, '/ala_carte_menu');
+                    }),
+                  ],
+                ),
+              ),
+            ),
           ],
-        ),
-      ),
-      bottomNavigationBar: bottomNav(context),
-    );
+        ));
   }
 }

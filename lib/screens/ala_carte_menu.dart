@@ -51,40 +51,26 @@ class _AlaCarteMenuScreenState extends State<AlaCarteMenuScreen> {
                     ),
                     Gap(40.h),
                     Text(
-                      "Choose your preferred Dish",
+                      "Choose your preferred Option",
                       style: GoogleFonts.inter(
                           fontWeight: FontWeight.w400,
                           fontSize: 16.sp,
                           color: AppColor.white),
                     ),
-                    // Gap(70.h),
-                    // Row(
-                    //   crossAxisAlignment: CrossAxisAlignment.center,
-                    //   mainAxisAlignment: MainAxisAlignment.center,
-                    //   children: [
-                    //     Button1("Breakfast", AppImages.breakfast_icon, () {
-                    //       Navigator.pushNamed(context, "/success_page");
-                    //     }, true),
-                    //     Gap(18.w),
-                    //     Button1("Lunch", AppImages.lunch_icon, () {
-                    //       Navigator.pushNamed(context, "/lunch_menu");
-                    //     }, true)
-                    //   ],
-                    // ),
                     Gap(20.h),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Button1("Option 1", AppImages.dinner_icon, () {
+                        Button1("Starter", AppImages.dinner_icon, () {
                           // Navigator.pushNamed(context, "/dish_period");
                         }, true),
                         Gap(18.h),
-                        Button1("Option 2", AppImages.carte_icon, () {
+                        Button1("Main Course", AppImages.carte_icon, () {
                           Navigator.pushNamed(context, "/ala_carte_menu");
                         }, true),
                         Gap(18.h),
-                        Button1("Option 3", AppImages.carte_icon, () {
+                        Button1("Dessert", AppImages.carte_icon, () {
                           Navigator.pushNamed(context, "/ala_carte_menu");
                         }, true),
                       ],
