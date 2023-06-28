@@ -70,12 +70,13 @@ class GenerateRoute {
       case '/continental_dish':
         return MaterialPageRoute(builder: (_) => const LocalMenuScreen());
 
-      // Error page
-      case "/ErrorPage":
-        return MaterialPageRoute(builder: (_) => const ErrorPage());
-
+      // Success page
       case "/success_page":
         return MaterialPageRoute(builder: (_) => const SuccessPage());
+
+      // Error page
+      case "/errorPage":
+        return MaterialPageRoute(builder: (_) => const ErrorPage());
 
       default:
         return MaterialPageRoute(builder: (_) => const SwipeCardScreen());
