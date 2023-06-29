@@ -48,6 +48,17 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
                               style: GoogleFonts.inter(),
                             )),
                       ),
+                      PopupMenuItem<int>(
+                        value: 1,
+                        child: TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/approved_orders');
+                            },
+                            child: Text(
+                              'Approved Orders',
+                              style: GoogleFonts.inter(),
+                            )),
+                      ),
                     ]),
           ],
         ),
