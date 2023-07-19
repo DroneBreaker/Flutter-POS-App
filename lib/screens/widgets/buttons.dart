@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colors.dart';
 
-Widget Button1(String title, String Icon, Function() callback,
+Widget button1(String title, String Icon, Function() callback,
     [bool check = false]) {
   return TextButton(
     onPressed: callback,

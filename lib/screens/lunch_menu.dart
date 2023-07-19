@@ -59,15 +59,15 @@ class _LunchMenuScreenState extends State<LunchMenuScreen> {
                           color: AppColor.white),
                     ),
                     Gap(25.h),
-                    Button1("Chinese Dishes", AppImages.local_icon, () {
+                    button1("Chinese Dishes", AppImages.local_icon, () {
                       Navigator.pushNamed(context, "/chinese_dish");
                     }),
                     Gap(30.h),
-                    Button1("Local Dishes", AppImages.local_icon, () {
+                    button1("Local Dishes", AppImages.local_icon, () {
                       Navigator.pushNamed(context, "/dish_period");
                     }),
                     Gap(30.h),
-                    Button1("Continental Dishes", AppImages.continental_icon,
+                    button1("Continental Dishes", AppImages.continental_icon,
                         () {
                       // Navigator.pushNamed(context, '/ala_carte_menu');
                     }),

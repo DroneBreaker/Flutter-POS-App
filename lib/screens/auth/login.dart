@@ -70,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         hintStyle: TextStyle(color: AppColor.white)),
                   ),
                   Gap(30.h),
-                  Button1('Login', AppImages.add, () {
+                  button1('Login', AppImages.add, () {
                     return;
                   }),
                 ],
