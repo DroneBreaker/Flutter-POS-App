@@ -6,32 +6,54 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../config/colors.dart';
 
 Widget button1(String title, String Icon, Function() callback,
-    [bool check = false]) {
+    [bool check = false, bool submit = false]) {
   return TextButton(
     onPressed: callback,
-    style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(AppColor.white),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)))),
+    style: submit
+        ? ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(
+                const Color.fromARGB(255, 13, 111, 16)),
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(0.0))))
+        : ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(AppColor.white),
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0)))),
     child: SizedBox(
       height: 40.h,
-      width: check ? 159.w : 254.w,
+      width: submit
+          ? double.infinity
+          : check
+              ? 159.w
+              : 254.w,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
-            Icon,
-            width: 36.w,
-            height: 38.h,
-          ),
+          !submit
+              ? Image.asset(
+                  Icon,
+                  width: 36.w,
+                  height: 38.h,
+                )
+              : Container(),
           Gap(10.w),
           Text(
             title,
             style: GoogleFonts.inter(
-                fontWeight: check ? FontWeight.w600 : FontWeight.w400,
-                fontSize: check ? 13.sp : 16.sp,
-                color: AppColor.black),
+                fontWeight: submit
+                    ? FontWeight.w800
+                    : check
+                        ? FontWeight.w600
+                        : FontWeight.w400,
+                fontSize: submit
+                    ? 18.sp
+                    : check
+                        ? 13.sp
+                        : 16.sp,
+                color: submit ? AppColor.white : AppColor.black),
           ),
         ],
       ),
