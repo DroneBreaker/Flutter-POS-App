@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 
 import '../../config/images.dart';
 import '../widgets/buttons.dart';
+import '../widgets/food_widget.dart';
 
 class PreOrderScreen extends StatefulWidget {
   const PreOrderScreen({super.key});
@@ -17,7 +18,7 @@ class PreOrderScreen extends StatefulWidget {
 }
 
 class _PreOrderScreenState extends State<PreOrderScreen> {
-  bool batch_order = true;
+  bool batch_order = false;
 
   String current_order_id = "";
   final today = DateUtils.dateOnly(DateTime.now());
@@ -27,7 +28,7 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
     return Scaffold(
       backgroundColor: AppColor.BgColor,
       appBar: AppBar(
-        backgroundColor: batch_order ? AppColor.PrimaryLightColor : null,
+        backgroundColor: AppColor.PrimaryLightColor,
         title: const Text("Order Meal"),
         elevation: 0,
         centerTitle: true,
@@ -38,7 +39,7 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
                   context: context,
                   config: CalendarDatePicker2WithActionButtonsConfig(
                       calendarType: CalendarDatePicker2Type.single),
-                  dialogSize: const Size(325, 400),
+                  dialogSize: Size(325.w, 400.h),
                   borderRadius: BorderRadius.circular(15),
                 );
                 if (results != null) {
@@ -67,9 +68,11 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
                   color: AppColor.textBlack),
             ),
             Gap(25.h),
-            button1("Breakfast", AppImages.breakfast_icon, () {
-              Navigator.pushNamed(context, "/dish_period");
-            }),
+            batch_order
+                ? button1("Breakfast", AppImages.breakfast_icon, () {
+                    Navigator.pushNamed(context, "/dish_period");
+                  })
+                : Container(),
             Gap(15.h),
             button1("Lunch", AppImages.lunch_icon, () {
               Navigator.pushNamed(context, "/dish_period");
@@ -78,12 +81,27 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
             button1("Dinner", AppImages.dinner_icon, () {
               // Navigator.pushNamed(context, '/ala_carte_menu');
             }),
-            Gap(30.h),
+            Gap(40.h),
             Expanded(
                 child: Container(
-              color: AppColor.PrimaryColor,
-            )),
-            button1("Dinner", AppImages.dinner_icon, () {
+                    decoration: BoxDecoration(
+                        color: AppColor.PrimaryLightColor,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(30.0),
+                            topRight: Radius.circular(30.0))),
+                    child: null
+                    //    ListView.builder(
+                    //       padding: EdgeInsets.zero,
+                    //       itemCount: 6,
+                    //       itemBuilder: (BuildContext context, int index) {
+                    //         return FoodWidget(
+                    //             "Continental Wrap",
+                    //             "2 Eggs, Sausage Slices, Baked Beans small portion fries Served with Tea",
+                    //             AppImages.breakfast_image,
+                    //             index);
+                    //       }),
+                    )),
+            button1("Submit", AppImages.dinner_icon, () {
               // Navigator.pushNamed(context, '/ala_carte_menu');
             }, false, true)
 

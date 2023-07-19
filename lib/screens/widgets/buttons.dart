@@ -44,7 +44,7 @@ Widget button1(String title, String Icon, Function() callback,
             title,
             style: GoogleFonts.inter(
                 fontWeight: submit
-                    ? FontWeight.w800
+                    ? FontWeight.w700
                     : check
                         ? FontWeight.w600
                         : FontWeight.w400,

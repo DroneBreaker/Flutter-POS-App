@@ -72,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Gap(30.h),
                   button1('Login', AppImages.add, () {
                     return;
-                  }),
+                  }, false, true),
                 ],
               ),
             ),
