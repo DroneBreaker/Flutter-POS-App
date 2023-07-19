@@ -10,6 +10,6 @@ class PreOrderScreen extends StatefulWidget {
 class _PreOrderScreenState extends State<PreOrderScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container();
   }
 }

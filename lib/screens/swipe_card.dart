@@ -30,24 +30,24 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
                         value: 0,
                         child: TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/single_order');
+                              Navigator.pushNamed(context, '/preorder');
                             },
                             child: Text(
-                              'Single Order',
+                              'Preorder',
                               style: GoogleFonts.inter(),
                             )),
                       ),
-                      PopupMenuItem<int>(
-                        value: 1,
-                        child: TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/batch_order');
-                            },
-                            child: Text(
-                              'Batch Order',
-                              style: GoogleFonts.inter(),
-                            )),
-                      ),
+                      // PopupMenuItem<int>(
+                      //   value: 1,
+                      //   child: TextButton(
+                      //       onPressed: () {
+                      //         Navigator.pushNamed(context, '/batch_order');
+                      //       },
+                      //       child: Text(
+                      //         'Batch Order',
+                      //         style: GoogleFonts.inter(),
+                      //       )),
+                      // ),
                       PopupMenuItem<int>(
                         value: 1,
                         child: TextButton(
@@ -55,7 +55,7 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
                               Navigator.pushNamed(context, '/approved_orders');
                             },
                             child: Text(
-                              'Approved Orders',
+                              'Received Orders',
                               style: GoogleFonts.inter(),
                             )),
                       ),
@@ -94,7 +94,7 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
                           fontSize: 36.sp,
                           color: AppColor.white),
                     ),
-                    Gap(48.h),
+                    Gap(46.h),
                     GestureDetector(
                       onTap: () =>
                           {Navigator.pushNamed(context, "/dish_period")},
@@ -105,6 +105,20 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
                       ),
                     ),
                     Gap(29.h),
+                    Text(
+                      "Swipe Your Card Here",
+                      style: GoogleFonts.inter(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16.sp,
+                          color: AppColor.white),
+                    ),
+                    // Text(
+                    //   "OR",
+                    //   style: GoogleFonts.inter(
+                    //       fontWeight: FontWeight.w400,
+                    //       fontSize: 16.sp,
+                    //       color: AppColor.white),
+                    // ),
                     Text(
                       "Swipe Your Card Here",
                       style: GoogleFonts.inter(
