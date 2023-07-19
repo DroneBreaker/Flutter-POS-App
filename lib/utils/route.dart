@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_pos_app/screens/ala_carte_menu.dart';
+import 'package:restaurant_pos_app/screens/auth/login.dart';
 import 'package:restaurant_pos_app/screens/chinese_dishes.dart';
 import 'package:restaurant_pos_app/screens/dinner_menu.dart';
 import 'package:restaurant_pos_app/screens/error.dart';
@@ -26,6 +27,10 @@ class GenerateRoute {
     switch (pagePath) {
       case "/":
         return MaterialPageRoute(builder: (_) => const SwipeCardScreen());
+
+      // Login page
+      case '/login':
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
 
       // Preorder page
       case '/preorder':

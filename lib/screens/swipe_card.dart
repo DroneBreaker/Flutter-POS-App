@@ -119,12 +119,17 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
                     //       fontSize: 16.sp,
                     //       color: AppColor.white),
                     // ),
-                    Text(
-                      "Login Here",
-                      style: GoogleFonts.inter(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16.sp,
-                          color: AppColor.white),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/login');
+                      },
+                      child: Text(
+                        'Login Here',
+                        style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16.sp,
+                            color: AppColor.white),
+                      ),
                     ),
                   ],
                 ),
