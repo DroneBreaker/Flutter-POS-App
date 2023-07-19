@@ -6,6 +6,8 @@ import 'package:restaurant_pos_app/config/colors.dart';
 import 'package:restaurant_pos_app/config/images.dart';
 import 'package:restaurant_pos_app/screens/widgets/bg.dart';
 
+import 'package:restaurant_pos_app/screens/widgets/buttons.dart';
+
 class AlaCarteMenuScreen extends StatefulWidget {
   const AlaCarteMenuScreen({super.key});
 
