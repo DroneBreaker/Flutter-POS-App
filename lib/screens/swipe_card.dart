@@ -120,7 +120,7 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
                     //       color: AppColor.white),
                     // ),
                     Text(
-                      "Swipe Your Card Here",
+                      "Login Here",
                       style: GoogleFonts.inter(
                           fontWeight: FontWeight.w400,
                           fontSize: 16.sp,
