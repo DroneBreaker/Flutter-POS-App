@@ -31,8 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
       if (staffIDController.text == '4677' &&
           passwordController.text == 'password') {
         // Login successful, navigate to preorder screen or main part of the app
-        // Navigator.pushReplacementNamed(context, '/preorder');
-        Navigator.pushReplacementNamed(context, '/dish_period');
+        Navigator.pushReplacementNamed(context, '/preorder');
       } else {
         // Login failed, display an error message
         showDialog(
