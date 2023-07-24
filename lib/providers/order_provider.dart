@@ -124,15 +124,6 @@ class OrderProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void allOrders() {
-    for (var order in orderCart) {
-      List<Orders> a = order.orders!;
-      for (var el in a) {
-        print(el.type);
-      }
-    }
-  }
-
   bool checkDate({required String date}) {
     bool result = false;
     for (var order in orderCart) {
