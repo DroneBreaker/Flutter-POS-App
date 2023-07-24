@@ -194,8 +194,8 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
                   ),
                 ),
                 button1("Submit", AppImages.dinner_icon, () {
-                  Provider.of<OrderProvider>(context, listen: false)
-                      .allOrders();
+                  // Provider.of<OrderProvider>(context, listen: false)
+                  //     .allOrders();
                 }, false, true)
 
 //Orders

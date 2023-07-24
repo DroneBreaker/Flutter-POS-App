@@ -87,7 +87,8 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
                           widget.category, () {
                         Provider.of<OrderProvider>(context, listen: false)
                             .setSelectedFood(
-                                setSelectedFood: index, category: widget.category);
+                                setSelectedFood: index,
+                                category: widget.category);
                         setState(() {});
                       });
                     }),
