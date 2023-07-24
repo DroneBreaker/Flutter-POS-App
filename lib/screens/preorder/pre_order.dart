@@ -29,6 +29,7 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
   final today = DateUtils.dateOnly(DateTime.now());
   // ignore: non_constant_identifier_names
   DateTime current_order_date = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
