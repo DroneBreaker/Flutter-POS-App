@@ -156,5 +156,14 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
             ),
           ),
         ]));
+    return Center(
+      child: Text(
+        'Welcome to the Preorder screen',
+        style: GoogleFonts.inter(
+            fontWeight: FontWeight.w800,
+            fontSize: 20.sp,
+            color: AppColor.white),
+      ),
+    );
   }
 }
