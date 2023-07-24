@@ -83,35 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 30, right: 30),
                 child: Column(children: [
-                  Gap(40.h),
-                  Text(
-                    'Login Here',
-                    style: GoogleFonts.inter(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 25.sp,
-                        color: AppColor.white),
-                  ),
-                  Gap(20.h),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        contentPadding: EdgeInsets.only(left: 20),
-                        hintText: 'Staff ID',
-                        hintStyle: TextStyle(color: AppColor.white)),
-                  ),
-                  Gap(35.h),
-                  TextFormField(
-                    obscureText: true,
-                    decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        contentPadding: EdgeInsets.only(left: 20),
-                        hintText: 'Password',
-                        hintStyle: TextStyle(color: AppColor.white)),
-                  ),
                   Gap(30.h),
-                  button1('Login', AppImages.add, () {
-                    return;
-                  }, false, true),
                   Form(
                     key: _formKey,
                     child: Column(children: [
@@ -161,7 +133,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             hintStyle: TextStyle(color: AppColor.white)),
                       ),
                       Gap(30.h),
-                      button1('Login', AppImages.add, _submitLogin)
+                      button1(
+                          'Login', AppImages.add, _submitLogin, false, true),
                     ]),
                   ),
                 ]),

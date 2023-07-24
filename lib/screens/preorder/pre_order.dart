@@ -20,7 +20,7 @@ class PreOrderScreen extends StatefulWidget {
 }
 
 class _PreOrderScreenState extends State<PreOrderScreen> {
-  bool batch_order = true;
+  bool batch_order = false;
 
   String current_order_id = "";
   final today = DateUtils.dateOnly(DateTime.now());
@@ -106,7 +106,7 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
                 Gap(40.h),
                 SizedBox(
                     child: Text(
-                  "Ordered",
+                  "Orders",
                   style: GoogleFonts.inter(
                       fontWeight: FontWeight.w400,
                       fontSize: 16.sp,
@@ -115,7 +115,8 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
                 Gap(40.h),
                 Expanded(
                   child: Container(
-                    color: Color.fromARGB(58, 0, 0, 0),
+                    color: const Color.fromARGB(58, 0, 0, 0),
+                    padding: EdgeInsets.only(top: 15.h),
                     // width: 350.w,
                     child: ListView.builder(
                         padding: EdgeInsets.zero,
@@ -128,19 +129,19 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
                                 bottom: 10.h,
                                 top: 5.h),
                             height: 80.h,
+                            decoration: BoxDecoration(
+                                color: AppColor.white,
+                                borderRadius: BorderRadius.circular(50)),
                             child: Row(
                               children: [
-                                Gap(10.w),
-                                Expanded(child: Text("2nd July, 2023")),
+                                Gap(20.w),
+                                const Expanded(child: Text("2nd July, 2023")),
                                 IconButton(
                                     onPressed: () {},
                                     icon: FaIcon(FontAwesomeIcons.trash)),
                                 Gap(10.w),
                               ],
                             ),
-                            decoration: BoxDecoration(
-                                color: AppColor.white,
-                                borderRadius: BorderRadius.circular(20.0)),
                           );
                         }),
                   ),
@@ -156,14 +157,5 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
             ),
           ),
         ]));
-    return Center(
-      child: Text(
-        'Welcome to the Preorder screen',
-        style: GoogleFonts.inter(
-            fontWeight: FontWeight.w800,
-            fontSize: 20.sp,
-            color: AppColor.white),
-      ),
-    );
   }
 }
