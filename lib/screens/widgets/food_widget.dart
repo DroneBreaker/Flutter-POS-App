@@ -111,6 +111,7 @@ class FoodWidget1 extends StatefulWidget {
   final String image;
   final int id;
   final String category;
+  // ignore: prefer_typing_uninitialized_variables
   final callback;
 
   const FoodWidget1(this.title, this.description, this.image, this.id,

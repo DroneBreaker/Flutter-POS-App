@@ -8,6 +8,7 @@ import 'package:restaurant_pos_app/screens/local_dishes.dart';
 import 'package:restaurant_pos_app/screens/lunch_menu.dart';
 import 'package:restaurant_pos_app/screens/preorder/approved_orders.dart';
 import 'package:restaurant_pos_app/screens/preorder/batch_order.dart';
+import 'package:restaurant_pos_app/screens/preorder/food_list.dart';
 import 'package:restaurant_pos_app/screens/preorder/pre_order.dart';
 import 'package:restaurant_pos_app/screens/preorder/single_order.dart';
 import 'package:restaurant_pos_app/screens/success.dart';
@@ -17,7 +18,6 @@ import 'package:restaurant_pos_app/screens/swipe_card.dart';
 import '../screens/dish_period.dart';
 import '../screens/home_page.dart';
 import '../screens/preferred_dish.dart';
-import '../screens/preorder/food_list.dart';
 
 class GenerateRoute {
   //onGenerateRoute init
@@ -27,7 +27,7 @@ class GenerateRoute {
 
     switch (pagePath) {
       case "/":
-        return MaterialPageRoute(builder: (_) => const FoodMenuScreen());
+        return MaterialPageRoute(builder: (_) => const SwipeCardScreen());
 
       // Login page
       case '/login':
@@ -58,6 +58,10 @@ class GenerateRoute {
       case "/home_page":
         return MaterialPageRoute(builder: (_) => const HomePage());
 
+      case "/test_food":
+        return MaterialPageRoute(
+          builder: (_) => FoodMenuScreen(date: settings.arguments),
+        );
       // BreakfastMenuPage
       // case "/breakfast_menu":
       // return MaterialPageRoute(builder: (_) => const BreakfastMenuScreen());

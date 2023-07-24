@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -8,12 +9,16 @@ import 'package:restaurant_pos_app/config/keywords.dart';
 
 import '../../config/colors.dart';
 // import 'widgets/bottom_nav.dart';
+import '../../models/order.dart';
 import '../../providers/order_provider.dart';
 import '../widgets/buttons.dart';
 import '../widgets/food_widget.dart';
 
+// ignore: must_be_immutable
 class FoodMenuScreen extends StatefulWidget {
-  const FoodMenuScreen({super.key});
+  // ignore: prefer_typing_uninitialized_variables
+  var date;
+  FoodMenuScreen({super.key, required this.date});
 
   @override
   State<FoodMenuScreen> createState() => _FoodMenuScreenState();
@@ -21,6 +26,12 @@ class FoodMenuScreen extends StatefulWidget {
 
 class _FoodMenuScreenState extends State<FoodMenuScreen> {
   final category = AppKeywords.breakFastSelected;
+  @override
+  void initState() {
+    // print(widget.date["Date"]);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,7 +93,12 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
                     }),
               ),
             ),
-            button1("Done", AppImages.dinner_icon, () {}, false, true)
+            button1("Done", AppImages.dinner_icon, () {
+              Order g = Order(
+                  id: "3434", date: "data", orders: [Orders(type: "", id: "")]);
+              Provider.of<OrderProvider>(context, listen: false)
+                  .addOrder(order: g);
+            }, false, true)
           ],
         ),
       ),

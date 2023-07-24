@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colors.dart';
 
+// ignore: non_constant_identifier_names
 Widget button1(String title, String Icon, Function() callback,
     [bool check = false, bool submit = false]) {
   return TextButton(

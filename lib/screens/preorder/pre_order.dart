@@ -5,12 +5,9 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant_pos_app/config/colors.dart';
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
-import 'package:intl/intl.dart';
-
 import '../../config/images.dart';
 import '../widgets/bg.dart';
 import '../widgets/buttons.dart';
-import '../widgets/food_widget.dart';
 
 class PreOrderScreen extends StatefulWidget {
   const PreOrderScreen({super.key});
@@ -20,10 +17,12 @@ class PreOrderScreen extends StatefulWidget {
 }
 
 class _PreOrderScreenState extends State<PreOrderScreen> {
-  bool batch_order = false;
-
+  // ignore: non_constant_identifier_names
+  bool batch_order = true;
+  // ignore: non_constant_identifier_names
   String current_order_id = "";
   final today = DateUtils.dateOnly(DateTime.now());
+  // ignore: non_constant_identifier_names
   DateTime current_order_date = DateTime.now();
   @override
   Widget build(BuildContext context) {
@@ -92,7 +91,8 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
                 Gap(25.h),
                 batch_order
                     ? button1("Breakfast", AppImages.breakfast_icon, () {
-                        Navigator.pushNamed(context, "/dish_period");
+                        Navigator.pushNamed(context, "/test_food",
+                            arguments: {"Date": current_order_date});
                       })
                     : Container(),
                 Gap(15.h),

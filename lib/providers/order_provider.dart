@@ -3,7 +3,7 @@ import 'package:restaurant_pos_app/config/keywords.dart';
 import 'package:restaurant_pos_app/models/order.dart';
 
 class OrderProvider with ChangeNotifier {
-  List<Order> appCart = [];
+  List<Order> orderCart = [];
   int breakFastSelected = -1;
   int lunchSelected = -1;
   int dinnerSelected = -1;
@@ -59,6 +59,16 @@ class OrderProvider with ChangeNotifier {
     breakFastSelected = -1;
     lunchSelected = -1;
     dinnerSelected = -1;
+    notifyListeners();
+  }
+
+  void addOrder({required Order order}) {
+    orderCart.add(order);
+    notifyListeners();
+  }
+
+  void removeOrder({required String orderID}) {
+    // orderCart.add(Order);
     notifyListeners();
   }
 }
