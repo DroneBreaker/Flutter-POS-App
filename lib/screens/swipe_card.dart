@@ -30,7 +30,7 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
                         value: 0,
                         child: TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/preorder');
+                              Navigator.pushNamed(context, '/dish_period');
                             },
                             child: Text(
                               'Preorder',

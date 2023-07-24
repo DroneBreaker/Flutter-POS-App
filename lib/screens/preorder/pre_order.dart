@@ -25,6 +25,7 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
   String current_order_id = "";
   final today = DateUtils.dateOnly(DateTime.now());
   DateTime current_order_date = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,51 +105,51 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
                   // Navigator.pushNamed(context, '/ala_carte_menu');
                 }),
                 Gap(40.h),
-                SizedBox(
-                    child: Text(
-                  "Orders",
-                  style: GoogleFonts.inter(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16.sp,
-                      color: AppColor.white),
-                )),
-                Gap(40.h),
-                Expanded(
-                  child: Container(
-                    color: const Color.fromARGB(58, 0, 0, 0),
-                    padding: EdgeInsets.only(top: 15.h),
-                    // width: 350.w,
-                    child: ListView.builder(
-                        padding: EdgeInsets.zero,
-                        itemCount: 5,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Container(
-                            margin: EdgeInsets.only(
-                                left: 10.w,
-                                right: 10.w,
-                                bottom: 10.h,
-                                top: 5.h),
-                            height: 80.h,
-                            decoration: BoxDecoration(
-                                color: AppColor.white,
-                                borderRadius: BorderRadius.circular(50)),
-                            child: Row(
-                              children: [
-                                Gap(20.w),
-                                const Expanded(child: Text("2nd July, 2023")),
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: FaIcon(
-                                      FontAwesomeIcons.trash,
-                                      size: 20.h,
-                                    )),
-                                Gap(10.w),
-                              ],
-                            ),
-                          );
-                        }),
-                  ),
-                ),
+                // SizedBox(
+                //     child: Text(
+                //   "Orders",
+                //   style: GoogleFonts.inter(
+                //       fontWeight: FontWeight.w400,
+                //       fontSize: 16.sp,
+                //       color: AppColor.white),
+                // )),
+                // Gap(40.h),
+                // Expanded(
+                //   child: Container(
+                //     color: const Color.fromARGB(58, 0, 0, 0),
+                //     padding: EdgeInsets.only(top: 15.h),
+                //     // width: 350.w,
+                //     child: ListView.builder(
+                //         padding: EdgeInsets.zero,
+                //         itemCount: 5,
+                //         itemBuilder: (BuildContext context, int index) {
+                //           return Container(
+                //             margin: EdgeInsets.only(
+                //                 left: 10.w,
+                //                 right: 10.w,
+                //                 bottom: 10.h,
+                //                 top: 5.h),
+                //             height: 80.h,
+                //             decoration: BoxDecoration(
+                //                 color: AppColor.white,
+                //                 borderRadius: BorderRadius.circular(50)),
+                //             child: Row(
+                //               children: [
+                //                 Gap(20.w),
+                //                 const Expanded(child: Text("2nd July, 2023")),
+                //                 IconButton(
+                //                     onPressed: () {},
+                //                     icon: FaIcon(
+                //                       FontAwesomeIcons.trash,
+                //                       size: 20.h,
+                //                     )),
+                //                 Gap(10.w),
+                //               ],
+                //             ),
+                //           );
+                //         }),
+                //   ),
+                // ),
                 button1("Submit", AppImages.dinner_icon, () {
                   // Navigator.pushNamed(context, '/ala_carte_menu');
                 }, false, true)
