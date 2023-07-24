@@ -16,7 +16,9 @@ class PrefDishScreen extends StatelessWidget {
     return Scaffold(
         appBar: null,
         extendBodyBehindAppBar: true,
-        body: Stack(
+        body:
+        
+         Stack(
           children: [
             ClipPath(
               clipper: BgD(),
