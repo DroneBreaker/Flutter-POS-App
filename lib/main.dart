@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:restaurant_pos_app/providers/order_provider.dart';
 import 'package:restaurant_pos_app/utils/route.dart';
 
 import 'providers/app_provider.dart';
@@ -14,7 +15,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -25,12 +25,11 @@ class MyApp extends StatelessWidget {
         return MultiProvider(
             providers: [
               Provider<AppProvider>(create: (context) => AppProvider()),
+              Provider<OrderProvider>(create: (context) => OrderProvider()),
             ],
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Restuarant App',
-
-              // You can use the library anywhere in the app even in theme
               theme: ThemeData(
                 primarySwatch: const MaterialColor(0xFFD39E12, {
                   50: Color(0xFFD39E12),
@@ -55,7 +54,6 @@ class MyApp extends StatelessWidget {
               onGenerateRoute: GenerateRoute.onGenerateRoute,
             ));
       },
-      // child: const SuccessPage(),
     );
   }
 }
