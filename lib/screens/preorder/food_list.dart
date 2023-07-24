@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:restaurant_pos_app/config/images.dart';
 import 'package:restaurant_pos_app/config/keywords.dart';
 
 import '../../config/colors.dart';
 // import 'widgets/bottom_nav.dart';
+import '../../providers/order_provider.dart';
+import '../widgets/buttons.dart';
 import '../widgets/food_widget.dart';
 
 class FoodMenuScreen extends StatefulWidget {
@@ -58,25 +61,31 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
             ),
             Gap(30.h),
             Expanded(
-                child: SizedBox(
-              width: double.infinity,
-              height: double.infinity,
-              child: ListView.builder(
-                  padding: EdgeInsets.zero,
-                  itemCount: 6,
-                  itemBuilder: (BuildContext context, int index) {
-                    return FoodWidget1(
-                        "Food Wrap",
-                        "2 Eggs, Sausage Slices, Baked Beans small portion fries Served with Tea",
-                        AppImages.breakfast_image,
-                        index,
-                        category);
-                  }),
-            ))
+              child: SizedBox(
+                width: double.infinity,
+                height: double.infinity,
+                child: ListView.builder(
+                    padding: EdgeInsets.zero,
+                    itemCount: 6,
+                    itemBuilder: (BuildContext context, int index) {
+                      return FoodWidget1(
+                          "Food Wrap",
+                          "2 Eggs, Sausage Slices, Baked Beans small portion fries Served with Tea",
+                          AppImages.breakfast_image,
+                          index,
+                          category, () {
+                        Provider.of<OrderProvider>(context, listen: false)
+                            .setSelectedFood(
+                                setSelectedFood: index, category: category);
+                        setState(() {});
+                      });
+                    }),
+              ),
+            ),
+            button1("Done", AppImages.dinner_icon, () {}, false, true)
           ],
         ),
       ),
-      // bottomNavigationBar: bottomNav(context),
     );
   }
 }

@@ -111,9 +111,10 @@ class FoodWidget1 extends StatefulWidget {
   final String image;
   final int id;
   final String category;
+  final callback;
 
-  const FoodWidget1(
-      this.title, this.description, this.image, this.id, this.category,
+  const FoodWidget1(this.title, this.description, this.image, this.id,
+      this.category, this.callback,
       {super.key});
 
   @override
@@ -124,14 +125,10 @@ class _FoodWidget1State extends State<FoodWidget1> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Provider.of<OrderProvider>(context, listen: false).setSelectedFood(
-            setSelectedFood: widget.id, category: widget.category);
-        setState(() {});
-      },
+      onTap: widget.callback,
       child: Opacity(
         opacity: widget.id ==
-                Provider.of<OrderProvider>(context)
+                Provider.of<OrderProvider>(context, listen: true)
                     .getSelectedFood(widget.category)
             ? 1
             : 0.5,
@@ -172,7 +169,7 @@ class _FoodWidget1State extends State<FoodWidget1> {
               ),
               Gap(50.w),
               widget.id !=
-                      Provider.of<OrderProvider>(context)
+                      Provider.of<OrderProvider>(context, listen: true)
                           .getSelectedFood(widget.category)
                   ? Image.asset(
                       AppImages.add,

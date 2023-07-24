@@ -52,7 +52,6 @@ class OrderProvider with ChangeNotifier {
       default:
         selected = -1;
     }
-    notifyListeners();
     return selected;
   }
 
