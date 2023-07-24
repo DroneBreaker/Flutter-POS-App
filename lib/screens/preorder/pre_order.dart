@@ -120,7 +120,7 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
                     // width: 350.w,
                     child: ListView.builder(
                         padding: EdgeInsets.zero,
-                        itemCount: 2,
+                        itemCount: 5,
                         itemBuilder: (BuildContext context, int index) {
                           return Container(
                             margin: EdgeInsets.only(
@@ -138,7 +138,10 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
                                 const Expanded(child: Text("2nd July, 2023")),
                                 IconButton(
                                     onPressed: () {},
-                                    icon: FaIcon(FontAwesomeIcons.trash)),
+                                    icon: FaIcon(
+                                      FontAwesomeIcons.trash,
+                                      size: 20.h,
+                                    )),
                                 Gap(10.w),
                               ],
                             ),
