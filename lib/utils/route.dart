@@ -58,10 +58,10 @@ class GenerateRoute {
       case "/home_page":
         return MaterialPageRoute(builder: (_) => const HomePage());
 
-      case "/test_food":
-        return MaterialPageRoute(
-          builder: (_) => FoodMenuScreen(date: settings.arguments),
-        );
+      // case "/test_food":
+      //   return MaterialPageRoute(
+      //     builder: (_) => FoodMenuScreen(date: settings.arguments),
+      //   );
       // BreakfastMenuPage
       // case "/breakfast_menu":
       // return MaterialPageRoute(builder: (_) => const BreakfastMenuScreen());

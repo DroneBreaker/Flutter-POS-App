@@ -25,3 +25,17 @@ class Food {
     return data;
   }
 }
+
+//  orders.forEach((order) {
+//     print(order.date);
+//   });
+
+//   // Edit an Order object based on its date property
+//   orders.forEach((order) {
+//     if (order.date == '2023-07-24') {
+//       order.orders!.add(Orders(type: 'electronics', id: 'E004'));
+//     }
+//   });
+
+//   // Delete an Order object based on its date property
+//   orders.removeWhere((order) => order.date == '2023-07-25');

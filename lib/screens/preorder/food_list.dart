@@ -18,14 +18,14 @@ import '../widgets/food_widget.dart';
 class FoodMenuScreen extends StatefulWidget {
   // ignore: prefer_typing_uninitialized_variables
   var date;
-  FoodMenuScreen({super.key, required this.date});
+  final String category;
+  FoodMenuScreen({super.key, required this.date, required this.category});
 
   @override
   State<FoodMenuScreen> createState() => _FoodMenuScreenState();
 }
 
 class _FoodMenuScreenState extends State<FoodMenuScreen> {
-  final category = AppKeywords.breakFastSelected;
   @override
   void initState() {
     // print(widget.date["Date"]);
@@ -84,10 +84,10 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
                           "2 Eggs, Sausage Slices, Baked Beans small portion fries Served with Tea",
                           AppImages.breakfast_image,
                           index,
-                          category, () {
+                          widget.category, () {
                         Provider.of<OrderProvider>(context, listen: false)
                             .setSelectedFood(
-                                setSelectedFood: index, category: category);
+                                setSelectedFood: index, category: widget.category);
                         setState(() {});
                       });
                     }),
@@ -95,9 +95,13 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
             ),
             button1("Done", AppImages.dinner_icon, () {
               Order g = Order(
-                  id: "3434", date: "data", orders: [Orders(type: "", id: "")]);
+                  id: "3434",
+                  date: "2023-2-2",
+                  orders: [Orders(type: widget.category, id: "77675")]);
               Provider.of<OrderProvider>(context, listen: false)
                   .addOrder(order: g);
+              Navigator.pop(context);
+              setState(() {});
             }, false, true)
           ],
         ),

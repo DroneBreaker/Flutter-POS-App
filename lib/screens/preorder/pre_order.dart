@@ -3,9 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:restaurant_pos_app/config/colors.dart';
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
+import 'package:restaurant_pos_app/config/keywords.dart';
+import 'package:restaurant_pos_app/screens/preorder/food_list.dart';
 import '../../config/images.dart';
+import '../../models/order.dart';
+import '../../providers/order_provider.dart';
 import '../widgets/bg.dart';
 import '../widgets/buttons.dart';
 
@@ -91,16 +96,40 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
                 Gap(25.h),
                 batch_order
                     ? button1("Breakfast", AppImages.breakfast_icon, () {
-                        Navigator.pushNamed(context, "/test_food",
-                            arguments: {"Date": current_order_date});
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(
+                          builder: (context) => FoodMenuScreen(
+                              date: current_order_date,
+                              category: AppKeywords.breakFastSelected),
+                        ))
+                            .then((value) {
+                          setState(() {});
+                        });
                       })
                     : Container(),
                 Gap(15.h),
                 button1("Lunch", AppImages.lunch_icon, () {
-                  Navigator.pushNamed(context, "/dish_period");
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(
+                    builder: (context) => FoodMenuScreen(
+                        date: current_order_date,
+                        category: AppKeywords.lunchSelected),
+                  ))
+                      .then((value) {
+                    setState(() {});
+                  });
                 }),
                 Gap(15.h),
                 button1("Dinner", AppImages.dinner_icon, () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(
+                    builder: (context) => FoodMenuScreen(
+                        date: current_order_date,
+                        category: AppKeywords.dinnerSelected),
+                  ))
+                      .then((value) {
+                    setState(() {});
+                  });
                   // Navigator.pushNamed(context, '/ala_carte_menu');
                 }),
                 Gap(40.h),
@@ -120,8 +149,12 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
                     // width: 350.w,
                     child: ListView.builder(
                         padding: EdgeInsets.zero,
-                        itemCount: 5,
+                        itemCount: Provider.of<OrderProvider>(context)
+                            .loadOrder()
+                            .length,
                         itemBuilder: (BuildContext context, int index) {
+                          Order item = Provider.of<OrderProvider>(context)
+                              .loadOrder()[index];
                           return Container(
                             margin: EdgeInsets.only(
                                 left: 10.w,
@@ -135,8 +168,17 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
                             child: Row(
                               children: [
                                 Gap(20.w),
-                                const Expanded(
-                                    child: Text("Order for \n 2nd July, 2023")),
+                                Expanded(
+                                    child: Row(
+                                  children: [
+                                    Text(item.date.toString()),
+                                    const Gap(20),
+                                    ...item.orders!.map((element) => Text(
+                                          element.type.toString(),
+                                          softWrap: true,
+                                        )),
+                                  ],
+                                )),
                                 IconButton(
                                     onPressed: () {},
                                     icon: FaIcon(
@@ -151,7 +193,8 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
                   ),
                 ),
                 button1("Submit", AppImages.dinner_icon, () {
-                  // Navigator.pushNamed(context, '/ala_carte_menu');
+                  Provider.of<OrderProvider>(context, listen: false)
+                      .allOrders();
                 }, false, true)
 
 //Orders

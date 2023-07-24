@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_pos_app/config/keywords.dart';
 import 'package:restaurant_pos_app/models/order.dart';
+import 'package:collection/collection.dart';
 
 class OrderProvider with ChangeNotifier {
   List<Order> orderCart = [];
@@ -63,7 +64,58 @@ class OrderProvider with ChangeNotifier {
   }
 
   void addOrder({required Order order}) {
-    orderCart.add(order);
+    if (checkDate(date: order.date.toString())) {
+      //simplified version of commented codes
+      for (var o in orderCart) {
+        if (o.date == order.date.toString()) {
+          var orderType = order.orders![0].type;
+          var existingOrder =
+              o.orders!.firstWhereOrNull((el) => el.type == orderType);
+          if (existingOrder != null) {
+            o.orders!.remove(existingOrder);
+          }
+          if (orderType != AppKeywords.breakFastSelected) {
+            o.orders!
+                .removeWhere((rm) => rm.type == AppKeywords.dinnerSelected);
+            o.orders!.removeWhere((rm) => rm.type == AppKeywords.lunchSelected);
+          }
+          o.orders!.add(order.orders![0]);
+          break;
+        }
+      }
+
+      // for (int i = 0; i < orderCart.length; i++) {
+      //   var o = orderCart[i];
+      //   if (o.date == order.date.toString()) {
+      //     var os = o.orders!;
+      //     for (int i = 0; i < os.length; i++) {
+      //       var el = os[i];
+
+      //       if (el.type == order.orders![0].type) {
+      //         o.orders?.removeWhere((rm) => rm.type == order.orders![0].type);
+      //         o.orders?.add(order.orders![0]);
+      //         break;
+      //       } else {
+      //         if (order.orders![0].type != AppKeywords.breakFastSelected) {
+      //           try {
+      //             o.orders?.removeWhere(
+      //                 (rm) => rm.type == AppKeywords.dinnerSelected);
+      //             o.orders?.removeWhere(
+      //                 (rm) => rm.type == AppKeywords.lunchSelected);
+      //           } catch (e) {
+      //             print(e);
+      //           }
+      //         }
+      //         o.orders?.add(order.orders![0]);
+      //         break;
+      //       }
+      //     }
+      //   }
+      // }
+    } else {
+      orderCart.add(order);
+    }
+
     notifyListeners();
   }
 
@@ -71,4 +123,43 @@ class OrderProvider with ChangeNotifier {
     // orderCart.add(Order);
     notifyListeners();
   }
+
+  void allOrders() {
+    for (var order in orderCart) {
+      List<Orders> a = order.orders!;
+      for (var el in a) {
+        print(el.type);
+      }
+    }
+  }
+
+  bool checkDate({required String date}) {
+    bool result = false;
+    for (var order in orderCart) {
+      if (order.date == date) {
+        result = true;
+        return true;
+      }
+    }
+    return result;
+  }
+
+  // void editOrder{}
+
+  List<Order> loadOrder() {
+    return orderCart;
+  }
+
+  // // Edit an Order object based on its date property
+  // orders.forEach((order) {
+  //   if (order.date == '2023-07-24') {
+  //     order.orders!.add(Orders(type: 'electronics', id: 'E004'));
+  //   }
+  // });
+
+  // // Delete an Order object based on its date property
+  // orders.removeWhere((order) => order.date == '2023-07-25');
+
+  // // Print the updated orders array
+  // print(orders);
 }
