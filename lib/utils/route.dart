@@ -6,7 +6,7 @@ import 'package:restaurant_pos_app/screens/dinner_menu.dart';
 import 'package:restaurant_pos_app/screens/error.dart';
 import 'package:restaurant_pos_app/screens/local_dishes.dart';
 import 'package:restaurant_pos_app/screens/lunch_menu.dart';
-import 'package:restaurant_pos_app/screens/preorder/approved_orders.dart';
+import 'package:restaurant_pos_app/screens/preorder/received_orders.dart';
 import 'package:restaurant_pos_app/screens/preorder/batch_order.dart';
 import 'package:restaurant_pos_app/screens/preorder/pre_order.dart';
 import 'package:restaurant_pos_app/screens/preorder/single_order.dart';
@@ -46,8 +46,8 @@ class GenerateRoute {
         return MaterialPageRoute(builder: (_) => const BatchOrderScreen());
 
       // Approved order page
-      case "/approved_orders":
-        return MaterialPageRoute(builder: (_) => const ApprovedOrderScreen());
+      case "/received_orders":
+        return MaterialPageRoute(builder: (_) => const ReceivedOrderScreen());
 
       case "/dish_period":
         return MaterialPageRoute(builder: (_) => const DishPeriodScreen());
