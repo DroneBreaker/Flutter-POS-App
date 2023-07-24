@@ -135,7 +135,8 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
                             child: Row(
                               children: [
                                 Gap(20.w),
-                                const Expanded(child: Text("2nd July, 2023")),
+                                const Expanded(
+                                    child: Text("Order for \n 2nd July, 2023")),
                                 IconButton(
                                     onPressed: () {},
                                     icon: FaIcon(

@@ -17,6 +17,7 @@ import 'package:restaurant_pos_app/screens/swipe_card.dart';
 import '../screens/dish_period.dart';
 import '../screens/home_page.dart';
 import '../screens/preferred_dish.dart';
+import '../screens/preorder/food_list.dart';
 
 class GenerateRoute {
   //onGenerateRoute init
@@ -26,7 +27,7 @@ class GenerateRoute {
 
     switch (pagePath) {
       case "/":
-        return MaterialPageRoute(builder: (_) => const SwipeCardScreen());
+        return MaterialPageRoute(builder: (_) => const FoodMenuScreen());
 
       // Login page
       case '/login':

@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:restaurant_pos_app/providers/app_provider.dart';
+import 'package:restaurant_pos_app/providers/order_provider.dart';
 
 import '../../config/colors.dart';
 import '../../config/images.dart';
@@ -109,8 +110,10 @@ class FoodWidget1 extends StatefulWidget {
   final String description;
   final String image;
   final int id;
+  final String category;
 
-  const FoodWidget1(this.title, this.description, this.image, this.id,
+  const FoodWidget1(
+      this.title, this.description, this.image, this.id, this.category,
       {super.key});
 
   @override
@@ -118,26 +121,18 @@ class FoodWidget1 extends StatefulWidget {
 }
 
 class _FoodWidget1State extends State<FoodWidget1> {
-  bool state = false;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (!state) {
-          Provider.of<AppProvider>(context, listen: false)
-              .addAppCart(id: (widget.id).toString());
-        } else {
-          Provider.of<AppProvider>(context, listen: false)
-              .removeAppCart(id: (widget.id).toString());
-        }
-
-        state = !state;
+        Provider.of<OrderProvider>(context, listen: false).setSelectedFood(
+            setSelectedFood: widget.id, category: widget.category);
         setState(() {});
       },
       child: Opacity(
-        opacity: Provider.of<AppProvider>(context)
-                .getAppCart()
-                .contains((widget.id).toString())
+        opacity: widget.id ==
+                Provider.of<OrderProvider>(context)
+                    .getSelectedFood(widget.category)
             ? 1
             : 0.5,
         child: Container(
@@ -176,9 +171,9 @@ class _FoodWidget1State extends State<FoodWidget1> {
                     ]),
               ),
               Gap(50.w),
-              !Provider.of<AppProvider>(context)
-                      .getAppCart()
-                      .contains((widget.id).toString())
+              widget.id !=
+                      Provider.of<OrderProvider>(context)
+                          .getSelectedFood(widget.category)
                   ? Image.asset(
                       AppImages.add,
                       width: 30.w,
