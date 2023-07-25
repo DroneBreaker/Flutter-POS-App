@@ -8,6 +8,7 @@ import 'package:restaurant_pos_app/config/colors.dart';
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:restaurant_pos_app/config/keywords.dart';
 import 'package:restaurant_pos_app/screens/preorder/food_list.dart';
+import 'package:restaurant_pos_app/screens/success.dart';
 import '../../config/images.dart';
 import '../../models/order.dart';
 import '../../providers/order_provider.dart';
@@ -86,7 +87,7 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Gap(30.h),
+                Gap(60.h),
                 Text(
                   "Choose your preferred Dish",
                   style: GoogleFonts.inter(
@@ -99,10 +100,11 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
                     ? button1("Breakfast", AppImages.breakfast_icon, () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(
-                          builder: (context) => FoodMenuScreen(
-                              date: current_order_date,
-                              category: AppKeywords.breakFastSelected),
-                        ))
+                                builder: (context) => const SuccessPage()
+                                // FoodMenuScreen(
+                                //     date: current_order_date,
+                                //     category: AppKeywords.breakFastSelected),
+                                ))
                             .then((value) {
                           setState(() {});
                         });
@@ -133,70 +135,70 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
                   });
                   // Navigator.pushNamed(context, '/ala_carte_menu');
                 }),
-                Gap(40.h),
-                SizedBox(
-                    child: Text(
-                  "Orders",
-                  style: GoogleFonts.inter(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16.sp,
-                      color: AppColor.white),
-                )),
-                Gap(40.h),
-                Expanded(
-                  child: Container(
-                    color: const Color.fromARGB(58, 0, 0, 0),
-                    padding: EdgeInsets.only(top: 15.h),
-                    // width: 350.w,
-                    child: ListView.builder(
-                        padding: EdgeInsets.zero,
-                        itemCount: Provider.of<OrderProvider>(context)
-                            .loadOrder()
-                            .length,
-                        itemBuilder: (BuildContext context, int index) {
-                          Order item = Provider.of<OrderProvider>(context)
-                              .loadOrder()[index];
-                          return Container(
-                            margin: EdgeInsets.only(
-                                left: 10.w,
-                                right: 10.w,
-                                bottom: 10.h,
-                                top: 5.h),
-                            height: 80.h,
-                            decoration: BoxDecoration(
-                                color: AppColor.white,
-                                borderRadius: BorderRadius.circular(50)),
-                            child: Row(
-                              children: [
-                                Gap(20.w),
-                                Expanded(
-                                    child: Row(
-                                  children: [
-                                    Text(item.date.toString()),
-                                    const Gap(20),
-                                    ...item.orders!.map((element) => Text(
-                                          element.type.toString(),
-                                          softWrap: true,
-                                        )),
-                                  ],
-                                )),
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: FaIcon(
-                                      FontAwesomeIcons.trash,
-                                      size: 20.h,
-                                    )),
-                                Gap(10.w),
-                              ],
-                            ),
-                          );
-                        }),
-                  ),
-                ),
-                button1("Submit", AppImages.dinner_icon, () {
-                  // Provider.of<OrderProvider>(context, listen: false)
-                  //     .allOrders();
-                }, false, true)
+                // Gap(40.h),
+                // SizedBox(
+                //     child: Text(
+                //   "Orders",
+                //   style: GoogleFonts.inter(
+                //       fontWeight: FontWeight.w400,
+                //       fontSize: 16.sp,
+                //       color: AppColor.white),
+                // )),
+                // Gap(40.h),
+                // Expanded(
+                //   child: Container(
+                //     color: const Color.fromARGB(58, 0, 0, 0),
+                //     padding: EdgeInsets.only(top: 15.h),
+                //     // width: 350.w,
+                //     child: ListView.builder(
+                //         padding: EdgeInsets.zero,
+                //         itemCount: Provider.of<OrderProvider>(context)
+                //             .loadOrder()
+                //             .length,
+                //         itemBuilder: (BuildContext context, int index) {
+                //           Order item = Provider.of<OrderProvider>(context)
+                //               .loadOrder()[index];
+                //           return Container(
+                //             margin: EdgeInsets.only(
+                //                 left: 10.w,
+                //                 right: 10.w,
+                //                 bottom: 10.h,
+                //                 top: 5.h),
+                //             height: 80.h,
+                //             decoration: BoxDecoration(
+                //                 color: AppColor.white,
+                //                 borderRadius: BorderRadius.circular(50)),
+                //             child: Row(
+                //               children: [
+                //                 Gap(20.w),
+                //                 Expanded(
+                //                     child: Row(
+                //                   children: [
+                //                     Text(item.date.toString()),
+                //                     const Gap(20),
+                //                     ...item.orders!.map((element) => Text(
+                //                           element.type.toString(),
+                //                           softWrap: true,
+                //                         )),
+                //                   ],
+                //                 )),
+                //                 IconButton(
+                //                     onPressed: () {},
+                //                     icon: FaIcon(
+                //                       FontAwesomeIcons.trash,
+                //                       size: 20.h,
+                //                     )),
+                //                 Gap(10.w),
+                //               ],
+                //             ),
+                //           );
+                //         }),
+                //   ),
+                // ),
+                // button1("Submit", AppImages.dinner_icon, () {
+                //   // Provider.of<OrderProvider>(context, listen: false)
+                //   //     .allOrders();
+                // }, false, true)
 
 //Orders
 
