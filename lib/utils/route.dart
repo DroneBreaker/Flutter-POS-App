@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_pos_app/screens/ala_carte_menu.dart';
+import 'package:restaurant_pos_app/screens/auth/login.dart';
 import 'package:restaurant_pos_app/screens/chinese_dishes.dart';
 import 'package:restaurant_pos_app/screens/dinner_menu.dart';
 import 'package:restaurant_pos_app/screens/error.dart';
 import 'package:restaurant_pos_app/screens/local_dishes.dart';
 import 'package:restaurant_pos_app/screens/lunch_menu.dart';
+import 'package:restaurant_pos_app/screens/preorder/received_orders.dart';
 import 'package:restaurant_pos_app/screens/preorder/batch_order.dart';
+import 'package:restaurant_pos_app/screens/preorder/food_list.dart';
+import 'package:restaurant_pos_app/screens/preorder/pre_order.dart';
 import 'package:restaurant_pos_app/screens/preorder/single_order.dart';
 import 'package:restaurant_pos_app/screens/success.dart';
 import 'package:restaurant_pos_app/screens/swipe_card.dart';
@@ -25,6 +29,14 @@ class GenerateRoute {
       case "/":
         return MaterialPageRoute(builder: (_) => const SwipeCardScreen());
 
+      // Login page
+      case '/login':
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
+
+      // Preorder page
+      case '/preorder':
+        return MaterialPageRoute(builder: (_) => const PreOrderScreen());
+
       // Single order page
       case "/single_order":
         return MaterialPageRoute(builder: (_) => const SingleOrderScreen());
@@ -32,6 +44,10 @@ class GenerateRoute {
       // Single order page
       case "/batch_order":
         return MaterialPageRoute(builder: (_) => const BatchOrderScreen());
+
+      // Approved order page
+      case "/received_orders":
+        return MaterialPageRoute(builder: (_) => const ReceivedOrderScreen());
 
       case "/dish_period":
         return MaterialPageRoute(builder: (_) => const DishPeriodScreen());
@@ -42,6 +58,10 @@ class GenerateRoute {
       case "/home_page":
         return MaterialPageRoute(builder: (_) => const HomePage());
 
+      // case "/test_food":
+      //   return MaterialPageRoute(
+      //     builder: (_) => FoodMenuScreen(date: settings.arguments),
+      //   );
       // BreakfastMenuPage
       // case "/breakfast_menu":
       // return MaterialPageRoute(builder: (_) => const BreakfastMenuScreen());

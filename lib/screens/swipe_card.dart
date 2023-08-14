@@ -30,10 +30,10 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
                         value: 0,
                         child: TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/single_order');
+                              Navigator.pushNamed(context, '/preorder');
                             },
                             child: Text(
-                              'Single Order',
+                              'Preorder',
                               style: GoogleFonts.inter(),
                             )),
                       ),
@@ -41,10 +41,10 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
                         value: 1,
                         child: TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/batch_order');
+                              Navigator.pushNamed(context, '/received_orders');
                             },
                             child: Text(
-                              'Batch Order',
+                              'Received Orders',
                               style: GoogleFonts.inter(),
                             )),
                       ),
@@ -83,7 +83,7 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
                           fontSize: 36.sp,
                           color: AppColor.white),
                     ),
-                    Gap(48.h),
+                    Gap(46.h),
                     GestureDetector(
                       onTap: () =>
                           {Navigator.pushNamed(context, "/dish_period")},
@@ -100,6 +100,25 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
                           fontWeight: FontWeight.w400,
                           fontSize: 16.sp,
                           color: AppColor.white),
+                    ),
+                    // Text(
+                    //   "OR",
+                    //   style: GoogleFonts.inter(
+                    //       fontWeight: FontWeight.w400,
+                    //       fontSize: 16.sp,
+                    //       color: AppColor.white),
+                    // ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/login');
+                      },
+                      child: Text(
+                        'Login Here',
+                        style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16.sp,
+                            color: AppColor.white),
+                      ),
                     ),
                   ],
                 ),
