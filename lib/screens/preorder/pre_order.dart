@@ -98,6 +98,8 @@ class _PreOrderScreenState extends State<PreOrderScreen> {
                 Gap(25.h),
                 batch_order
                     ? button1("Breakfast", AppImages.breakfast_icon, () {
+                        // FUNCTION GOES HERE TO VALIDATE BEFORE MOVING TO THE SUCCESS PAGE
+
                         Navigator.of(context)
                             .push(MaterialPageRoute(
                                 builder: (context) => const SuccessPage()
