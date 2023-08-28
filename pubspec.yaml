@@ -23,6 +23,7 @@ dependencies:
   calendar_date_picker2: ^0.5.2
   font_awesome_flutter: ^10.5.0
   intl: ^0.18.1
+  flutter_gb_pos_nfc: ^0.0.2
 
 dev_dependencies:
   flutter_test:

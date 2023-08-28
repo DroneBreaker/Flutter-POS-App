@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:restaurant_pos_app/providers/order_provider.dart';
 import 'package:restaurant_pos_app/utils/route.dart';
+import 'package:flutter_gb_pos_nfc/flutter_gb_pos_nfc.dart';
 
 import 'providers/app_provider.dart';
 
