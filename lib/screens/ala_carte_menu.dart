@@ -63,17 +63,18 @@ class _AlaCarteMenuScreenState extends State<AlaCarteMenuScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        button1("Starter", AppImages.dinner_icon, () {
-                          // Navigator.pushNamed(context, "/dish_period");
-                        }, true),
-                        Gap(18.h),
-                        button1("Main Course", AppImages.carte_icon, () {
-                          Navigator.pushNamed(context, "/ala_carte_menu");
-                        }, true),
-                        Gap(18.h),
-                        button1("Dessert", AppImages.carte_icon, () {
-                          Navigator.pushNamed(context, "/ala_carte_menu");
-                        }, true),
+                        
+                        // button1("Starter", AppImages.dinner_icon, () {
+                        //   // Navigator.pushNamed(context, "/dish_period");
+                        // }, true),
+                        // Gap(18.h),
+                        // button1("Main Course", AppImages.carte_icon, () {
+                        //   Navigator.pushNamed(context, "/ala_carte_menu");
+                        // }, true),
+                        // Gap(18.h),
+                        // button1("Dessert", AppImages.carte_icon, () {
+                        //   Navigator.pushNamed(context, "/ala_carte_menu");
+                        // }, true),
                       ],
                     ),
                     Gap(40.h),

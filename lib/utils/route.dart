@@ -6,6 +6,7 @@ import 'package:restaurant_pos_app/screens/dinner_menu.dart';
 import 'package:restaurant_pos_app/screens/error.dart';
 import 'package:restaurant_pos_app/screens/local_dishes.dart';
 import 'package:restaurant_pos_app/screens/lunch_menu.dart';
+import 'package:restaurant_pos_app/screens/order_type.dart';
 import 'package:restaurant_pos_app/screens/preorder/received_orders.dart';
 import 'package:restaurant_pos_app/screens/preorder/batch_order.dart';
 import 'package:restaurant_pos_app/screens/preorder/food_list.dart';
@@ -97,6 +98,9 @@ class GenerateRoute {
       // Error page
       case "/errorPage":
         return MaterialPageRoute(builder: (_) => const ErrorPage());
+
+      case '/order_type':
+        return MaterialPageRoute(builder: (_) => const OrderTypeScreen());
 
       default:
         return MaterialPageRoute(builder: (_) => const SwipeCardScreen());
