@@ -63,7 +63,7 @@ class DishPeriodScreen extends StatelessWidget {
                         }, true),
                         Gap(18.w),
                         button1("Lunch", AppImages.lunch_icon, () {
-                          Navigator.pushNamed(context, "/lunch_menu");
+                          Navigator.pushNamed(context, "/success_page");
                         }, true)
                       ],
                     ),

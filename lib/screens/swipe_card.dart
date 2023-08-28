@@ -5,6 +5,17 @@ import 'package:restaurant_pos_app/config/images.dart';
 import 'package:restaurant_pos_app/screens/widgets/bg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gap/gap.dart';
+import 'package:flutter_nfc_kit/flutter_nfc_kit.dart';
+import 'package:ndef/ndef.dart' as ndef;
+
+// import 'record-setting/raw_record_setting.dart';
+// import 'record-setting/text_record_setting.dart';
+// import 'record-setting/uri_record_setting.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/foundation.dart';
+
+import 'dart:async';
+import 'dart:io' show Platform, sleep;
 
 class SwipeCardScreen extends StatefulWidget {
   const SwipeCardScreen({super.key});
@@ -13,7 +24,54 @@ class SwipeCardScreen extends StatefulWidget {
   State<SwipeCardScreen> createState() => _SwipeCardScreenState();
 }
 
-class _SwipeCardScreenState extends State<SwipeCardScreen> {
+class _SwipeCardScreenState extends State<SwipeCardScreen>
+    with SingleTickerProviderStateMixin {
+  String _platformVersion = '';
+  NFCAvailability _availability = NFCAvailability.not_supported;
+  NFCTag? _tag;
+  String? _result, _writeResult;
+  late TabController _tabController;
+  List<ndef.NDEFRecord>? _records;
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    if (!kIsWeb)
+      _platformVersion =
+          '${Platform.operatingSystem} ${Platform.operatingSystemVersion}';
+    else
+      _platformVersion = 'Web';
+    initPlatformState();
+    _tabController = new TabController(length: 2, vsync: this);
+    _records = [];
+  }
+
+  // Platform messages are asynchronous, so we initialize in an async method.
+  Future<void> initPlatformState() async {
+    NFCAvailability availability;
+    try {
+      availability = await FlutterNfcKit.nfcAvailability;
+    } on PlatformException {
+      availability = NFCAvailability.not_supported;
+    }
+
+    // If the widget was removed from the tree while the asynchronous platform
+    // message was in flight, we want to discard the reply rather than calling
+    // setState to update our non-existent appearance.
+    if (!mounted) return;
+
+    setState(() {
+      // _platformVersion = platformVersion;
+      _availability = availability;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
