@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:restaurant_pos_app/constants.dart';
 
 import '../config/colors.dart';
 import '../config/images.dart';
@@ -47,7 +48,7 @@ class DishPeriodScreen extends StatelessWidget {
                     ),
                     Gap(40.h),
                     Text(
-                      "Choose your preferred Dish",
+                      Constants.DISH_PERIOD_INTRO,
                       style: GoogleFonts.inter(
                           fontWeight: FontWeight.w400,
                           fontSize: 16.sp,
@@ -58,11 +59,13 @@ class DishPeriodScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        button1("Breakfast", AppImages.breakfast_icon, () {
+                        button1(
+                            Constants.DISH_BREAKFAST, AppImages.breakfast_icon,
+                            () {
                           Navigator.pushNamed(context, "/order_type");
                         }, true),
                         Gap(18.w),
-                        button1("Lunch", AppImages.lunch_icon, () {
+                        button1(Constants.DISH_LUNCH, AppImages.lunch_icon, () {
                           Navigator.pushNamed(context, "/order_type");
                         }, true)
                       ],
@@ -72,18 +75,20 @@ class DishPeriodScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        button1("Dinner", AppImages.dinner_icon, () {
+                        button1(Constants.DISH_DINNER, AppImages.dinner_icon,
+                            () {
                           Navigator.pushNamed(context, "/dinner_menu");
                         }, true),
                         Gap(18.w),
-                        button1("`Ala Carte", AppImages.carte_icon, () {
+                        button1(Constants.DISH_ALA_CARTE, AppImages.carte_icon,
+                            () {
                           Navigator.pushNamed(context, "/ala_carte_menu");
                         }, true),
                       ],
                     ),
                     Gap(50.h),
                     Text(
-                      "Find the Best Food Around You",
+                      Constants.DISH_PERIOD_FOOTER,
                       style: GoogleFonts.inter(
                           fontWeight: FontWeight.w400,
                           fontSize: 16.sp,

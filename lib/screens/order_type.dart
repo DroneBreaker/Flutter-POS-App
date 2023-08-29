@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant_pos_app/config/colors.dart';
 import 'package:restaurant_pos_app/config/images.dart';
+import 'package:restaurant_pos_app/constants.dart';
 import 'package:restaurant_pos_app/screens/widgets/bg.dart';
 import 'package:restaurant_pos_app/screens/widgets/buttons.dart';
 
@@ -43,23 +44,23 @@ class _OrderTypeScreenState extends State<OrderTypeScreen> {
               child: Column(
                 children: [
                   Text(
-                    'Choose Your Order Type',
+                    Constants.ORDER_INTRO,
                     style: GoogleFonts.inter(
                         fontWeight: FontWeight.w600,
                         fontSize: 18.sp,
                         color: AppColor.white),
                   ),
                   Gap(35.h),
-                  button1("Take Out", AppImages.carte_icon, () {
+                  button1(Constants.ORDER_TAKE_OUT, AppImages.carte_icon, () {
                     Navigator.pushNamed(context, "/success_page");
                   }, true),
                   Gap(20.h),
-                  button1("Dine in", AppImages.carte_icon, () {
+                  button1(Constants.ORDER_DINE, AppImages.carte_icon, () {
                     Navigator.pushNamed(context, "/success_page");
                   }, true),
                   Gap(110.h),
                   Text(
-                    'Thanks for choosing and enjoy your meal.',
+                    Constants.ORDER_FOOTER,
                     style: GoogleFonts.inter(
                         fontWeight: FontWeight.w600,
                         fontSize: 17.sp,

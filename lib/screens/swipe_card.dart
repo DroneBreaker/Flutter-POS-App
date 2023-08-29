@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nfc_manager/platform_tags.dart';
 import 'package:restaurant_pos_app/config/colors.dart';
 import 'package:restaurant_pos_app/config/images.dart';
+import 'package:restaurant_pos_app/constants.dart';
 import 'package:restaurant_pos_app/screens/widgets/bg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gap/gap.dart';
@@ -34,6 +35,7 @@ class SwipeCardScreen extends StatefulWidget {
 
 class _SwipeCardScreenState extends State<SwipeCardScreen> {
   late String _cardID = 'hello';
+  late String _cardContent;
   TextEditingController testController = TextEditingController();
 
   @override
@@ -51,7 +53,8 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
 
       if (cardInfo.id != null && mounted) {
         setState(() {
-          _cardID = cardInfo.id!;
+          _cardID = cardInfo.id.toString();
+          _cardContent = cardInfo.content.toString();
           // testController.text = cardInfo.id ?? "-";
         });
       }
@@ -195,7 +198,7 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
                     ),
                     Gap(29.h),
                     Text(
-                      "Swipe Your Card Here",
+                      Constants.CARD_SWIPE,
                       style: GoogleFonts.inter(
                           fontWeight: FontWeight.w400,
                           fontSize: 16.sp,
@@ -208,7 +211,7 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
                         // GBPosNfc.start();
                       },
                       child: Text(
-                        'Login Here',
+                        Constants.SWIPE_LOGIN,
                         style: GoogleFonts.inter(
                             fontWeight: FontWeight.w400,
                             fontSize: 16.sp,

@@ -17,6 +17,7 @@ class AlaCarteMenuScreen extends StatefulWidget {
 
 class _AlaCarteMenuScreenState extends State<AlaCarteMenuScreen> {
   String _selectedStarter = 'Please choose a starter';
+  String _chosenValue = '';
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +66,13 @@ class _AlaCarteMenuScreenState extends State<AlaCarteMenuScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        Text(
+                          'Starter',
+                          style: GoogleFonts.inter(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16.sp,
+                              color: AppColor.white),
+                        ),
                         // button1("Starter", AppImages.dinner_icon, () {
                         //   // Navigator.pushNamed(context, "/dish_period");
                         // }, true),
@@ -84,17 +92,14 @@ class _AlaCarteMenuScreenState extends State<AlaCarteMenuScreen> {
                                 child: Text(value),
                               );
                             }).toList(),
-                            onChanged: (_) {
-                              setState(newStarter) {
-                                _selectedStarter = newStarter;
-                              }
-
-                              ;
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                _selectedStarter = newValue!;
+                              });
                             }),
                         Gap(30.h),
                         DropdownButton(items: null, onChanged: null),
                         Gap(30.h),
-                        DropdownButton(items: null, onChanged: null),
                       ],
                     ),
                     Gap(40.h),
