@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:nfc_manager/platform_tags.dart';
 import 'package:restaurant_pos_app/config/colors.dart';
 import 'package:restaurant_pos_app/config/images.dart';
 import 'package:restaurant_pos_app/screens/widgets/bg.dart';
@@ -8,13 +11,18 @@ import 'package:gap/gap.dart';
 import 'package:flutter_nfc_kit/flutter_nfc_kit.dart';
 import 'package:ndef/ndef.dart' as ndef;
 
+import 'dart:async';
+
+import 'package:flutter/services.dart';
+import 'package:flutter_gb_pos_nfc/flutter_gb_pos_nfc.dart';
+
+import 'package:nfc_manager/nfc_manager.dart';
+
 // import 'record-setting/raw_record_setting.dart';
 // import 'record-setting/text_record_setting.dart';
 // import 'record-setting/uri_record_setting.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
 
-import 'dart:async';
 import 'dart:io' show Platform, sleep;
 
 class SwipeCardScreen extends StatefulWidget {
@@ -24,52 +32,78 @@ class SwipeCardScreen extends StatefulWidget {
   State<SwipeCardScreen> createState() => _SwipeCardScreenState();
 }
 
-class _SwipeCardScreenState extends State<SwipeCardScreen>
-    with SingleTickerProviderStateMixin {
-  String _platformVersion = '';
-  NFCAvailability _availability = NFCAvailability.not_supported;
-  NFCTag? _tag;
-  String? _result, _writeResult;
-  late TabController _tabController;
-  List<ndef.NDEFRecord>? _records;
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
+class _SwipeCardScreenState extends State<SwipeCardScreen> {
+  late String _cardID = 'hello';
+  TextEditingController testController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    if (!kIsWeb)
-      _platformVersion =
-          '${Platform.operatingSystem} ${Platform.operatingSystemVersion}';
-    else
-      _platformVersion = 'Web';
-    initPlatformState();
-    _tabController = new TabController(length: 2, vsync: this);
-    _records = [];
+
+    cardRead();
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    NFCAvailability availability;
-    try {
-      availability = await FlutterNfcKit.nfcAvailability;
-    } on PlatformException {
-      availability = NFCAvailability.not_supported;
-    }
+  // function to read or listen to the tags
+  Future<void> cardRead() async {
+    GBPosNfc.readCard().listen((PosNfcData cardInfo) {
+      print(cardInfo.id.toString());
+      print(cardInfo.content.toString());
 
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      // _platformVersion = platformVersion;
-      _availability = availability;
+      if (cardInfo.id != null && mounted) {
+        setState(() {
+          _cardID = cardInfo.id!;
+          // testController.text = cardInfo.id ?? "-";
+        });
+      }
+    }, onDone: () async {
+      // code to restart listening
+      await Future.delayed(const Duration(seconds: 1));
+      GBPosNfc.start();
+      cardRead();
+      print('restared');
     });
+
+    // Check availability
+//     bool isAvailable = await NfcManager.instance.isAvailable();
+
+//     print(isAvailable);
+
+// // Start Session
+    // NfcManager.instance.startSession(
+    //   onDiscovered: (NfcTag tag) async {
+    //     print(tag.data);
+
+    //     final ndef = Ndef.from(tag);
+
+    //     if (ndef != null) {
+    //       final data = await ndef.read();
+
+    //       setState(() {
+    //         _cardID = const Utf8Decoder()
+    //             .convert(data.records.first.payload)
+    //             .substring(3);
+    //       });
+
+    //       print('decoded');
+
+    //       return;
+    //     }
+
+    //     setState(() {
+    //       _cardID = (NfcA.from(tag)?.identifier ??
+    //               NfcB.from(tag)?.identifier ??
+    //               NfcF.from(tag)?.identifier ??
+    //               NfcV.from(tag)?.identifier ??
+    //               Uint8List(0))
+    //           .toHexString();
+    //     });
+    //     print('Session started by DRONE');
+    //     // Navigator.popAndPushNamed(context, '/login');
+    //   },
+    // );
+
+// Stop Session
+    // NfcManager.instance.stopSession();
   }
 
   @override
@@ -92,7 +126,7 @@ class _SwipeCardScreenState extends State<SwipeCardScreen>
                             },
                             child: Text(
                               'Preorder',
-                              style: GoogleFonts.inter(),
+                              // style: GoogleFonts.inter(),
                             )),
                       ),
                       PopupMenuItem<int>(
@@ -103,7 +137,7 @@ class _SwipeCardScreenState extends State<SwipeCardScreen>
                             },
                             child: Text(
                               'Received Orders',
-                              style: GoogleFonts.inter(),
+                              // style: GoogleFonts.inter(),
                             )),
                       ),
                     ]),
@@ -135,10 +169,18 @@ class _SwipeCardScreenState extends State<SwipeCardScreen>
                 child: Column(
                   children: [
                     Text(
-                      "Hello!",
+                      _cardID.toString(),
                       style: GoogleFonts.inter(
-                          fontWeight: FontWeight.w800,
-                          fontSize: 36.sp,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16.sp,
+                          color: AppColor.white),
+                    ),
+                    Text(
+                      '',
+                      // _tag.toString(),
+                      style: GoogleFonts.inter(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16.sp,
                           color: AppColor.white),
                     ),
                     Gap(46.h),
@@ -159,16 +201,11 @@ class _SwipeCardScreenState extends State<SwipeCardScreen>
                           fontSize: 16.sp,
                           color: AppColor.white),
                     ),
-                    // Text(
-                    //   "OR",
-                    //   style: GoogleFonts.inter(
-                    //       fontWeight: FontWeight.w400,
-                    //       fontSize: 16.sp,
-                    //       color: AppColor.white),
-                    // ),
                     TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/login');
+                        // Navigator.pushReplacementNamed(context, '/login');
+
+                        // GBPosNfc.start();
                       },
                       child: Text(
                         'Login Here',

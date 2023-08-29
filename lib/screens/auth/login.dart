@@ -60,6 +60,14 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
         extendBodyBehindAppBar: true,
         body: Stack(children: [
+          // const Positioned(
+          //   bottom: 220,
+          //   left: 40,
+          //   child: Icon(
+          //     Icons.arrow_back,
+          //     size: 60,
+          //   ),
+          // ),
           ClipPath(
             clipper: BgD(),
             child: Container(
@@ -83,6 +91,9 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 30, right: 30),
                 child: Column(children: [
+                  button1('Go back', AppImages.add, () => {
+                    Navigator.pushNamed(context, '/')
+                  }),
                   Gap(30.h),
                   Form(
                     key: _formKey,
