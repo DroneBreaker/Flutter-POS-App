@@ -16,6 +16,8 @@ class AlaCarteMenuScreen extends StatefulWidget {
 }
 
 class _AlaCarteMenuScreenState extends State<AlaCarteMenuScreen> {
+  String _selectedStarter = 'Please choose a starter';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,17 +65,36 @@ class _AlaCarteMenuScreenState extends State<AlaCarteMenuScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        button1("Starter", AppImages.dinner_icon, () {
-                          // Navigator.pushNamed(context, "/dish_period");
-                        }, true),
-                        Gap(18.h),
-                        button1("Main Course", AppImages.carte_icon, () {
-                          Navigator.pushNamed(context, "/ala_carte_menu");
-                        }, true),
-                        Gap(18.h),
-                        button1("Dessert", AppImages.carte_icon, () {
-                          Navigator.pushNamed(context, "/ala_carte_menu");
-                        }, true),
+                        // button1("Starter", AppImages.dinner_icon, () {
+                        //   // Navigator.pushNamed(context, "/dish_period");
+                        // }, true),
+                        // Gap(18.h),
+                        // button1("Main Course", AppImages.carte_icon, () {
+                        //   Navigator.pushNamed(context, "/ala_carte_menu");
+                        // }, true),
+                        // Gap(18.h),
+                        // button1("Dessert", AppImages.carte_icon, () {
+                        //   Navigator.pushNamed(context, "/ala_carte_menu");
+                        // }, true),
+                        DropdownButton<String>(
+                            items: <String>['JJJJJ', 'B', 'C', 'D']
+                                .map((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                            onChanged: (_) {
+                              setState(newStarter) {
+                                _selectedStarter = newStarter;
+                              }
+
+                              ;
+                            }),
+                        Gap(30.h),
+                        DropdownButton(items: null, onChanged: null),
+                        Gap(30.h),
+                        DropdownButton(items: null, onChanged: null),
                       ],
                     ),
                     Gap(40.h),
