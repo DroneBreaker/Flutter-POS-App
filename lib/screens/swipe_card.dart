@@ -42,7 +42,7 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
   void initState() {
     super.initState();
 
-    cardRead();
+    // cardRead();
   }
 
   // function to read or listen to the tags

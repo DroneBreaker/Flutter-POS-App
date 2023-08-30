@@ -6,8 +6,6 @@ import 'package:restaurant_pos_app/config/colors.dart';
 import 'package:restaurant_pos_app/config/images.dart';
 import 'package:restaurant_pos_app/screens/widgets/bg.dart';
 
-import 'package:restaurant_pos_app/screens/widgets/buttons.dart';
-
 class AlaCarteMenuScreen extends StatefulWidget {
   const AlaCarteMenuScreen({super.key});
 
@@ -44,7 +42,7 @@ class _AlaCarteMenuScreenState extends State<AlaCarteMenuScreen> {
             ),
             SafeArea(
               child: Container(
-                padding: EdgeInsets.only(top: 167.h - 54.h),
+                padding: EdgeInsets.only(top: 140.h - 54.h),
                 width: double.infinity,
                 child: Column(
                   children: [
@@ -66,43 +64,136 @@ class _AlaCarteMenuScreenState extends State<AlaCarteMenuScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          'Starter',
-                          style: GoogleFonts.inter(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 16.sp,
-                              color: AppColor.white),
+                        Row(
+                          children: [
+                            Gap(80.w),
+                            Text(
+                              'Starter',
+                              style: GoogleFonts.inter(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 16.sp,
+                                  color: AppColor.white),
+                            ),
+                            Gap(15.w),
+                            SizedBox(
+                              width: 220,
+                              height: 40,
+                              child: TextFormField(
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  contentPadding: const EdgeInsets.only(
+                                      left: 10, right: 10),
+                                  hintText: 'Choose your starter meal',
+                                  hintStyle: GoogleFonts.inter(
+                                      fontWeight: FontWeight.w400,
+                                      color: AppColor.white),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                        // button1("Starter", AppImages.dinner_icon, () {
-                        //   // Navigator.pushNamed(context, "/dish_period");
-                        // }, true),
-                        // Gap(18.h),
-                        // button1("Main Course", AppImages.carte_icon, () {
-                        //   Navigator.pushNamed(context, "/ala_carte_menu");
-                        // }, true),
-                        // Gap(18.h),
-                        // button1("Dessert", AppImages.carte_icon, () {
-                        //   Navigator.pushNamed(context, "/ala_carte_menu");
-                        // }, true),
-                        DropdownButton<String>(
-                            items: <String>['JJJJJ', 'B', 'C', 'D']
-                                .map((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(value),
-                              );
-                            }).toList(),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                _selectedStarter = newValue!;
-                              });
-                            }),
+                        Gap(20.h),
+
+                        Row(
+                          children: [
+                            Gap(80.w),
+                            Text(
+                              'Main',
+                              style: GoogleFonts.inter(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 16.sp,
+                                  color: AppColor.white),
+                            ),
+                            Gap(31.w),
+                            SizedBox(
+                              width: 220,
+                              height: 40,
+                              child: TextFormField(
+                                decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    contentPadding: const EdgeInsets.only(
+                                        left: 10, right: 10),
+                                    hintText: 'Choose your main meal',
+                                    hintStyle: GoogleFonts.inter(
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColor.white)),
+                              ),
+                            ),
+                          ],
+                        ),
+                        // DropdownButton<String>(
+                        //     borderRadius: BorderRadius.circular(20),
+                        //     dropdownColor: AppColor.black,
+                        //     elevation: 5,
+                        //     style: const TextStyle(
+                        //         decoration: TextDecoration.overline),
+                        //     items: <String>['JJJJJ', 'B', 'C', 'D']
+                        //         .map((String value) {
+                        //       return DropdownMenuItem<String>(
+                        //         value: value,
+                        //         child: Text(value),
+                        //       );
+                        //     }).toList(),
+                        //     onChanged: (String? newValue) {
+                        //       setState(() {
+                        //         _selectedStarter = newValue!;
+                        //       });
+                        //     }),
                         Gap(30.h),
-                        DropdownButton(items: null, onChanged: null),
-                        Gap(30.h),
+
+                        Row(
+                          children: [
+                            Gap(80.w),
+                            Text(
+                              'Dessert',
+                              style: GoogleFonts.inter(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 16.sp,
+                                  color: AppColor.white),
+                            ),
+                            Gap(12.w),
+                            SizedBox(
+                              width: 218,
+                              height: 40,
+                              child: TextFormField(
+                                decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    contentPadding: const EdgeInsets.only(
+                                        left: 10, right: 10),
+                                    hintText: 'Choose your dessert',
+                                    hintStyle: GoogleFonts.inter(
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColor.white)),
+                              ),
+                            ),
+                          ],
+                        ),
+                        // Text(
+                        //   "Main Course",
+                        //   style: GoogleFonts.inter(
+                        //       fontWeight: FontWeight.w500,
+                        //       fontSize: 16.sp,
+                        //       color: AppColor.white),
+                        // ),
+                        // DropdownButton(items: null, onChanged: null),
+                        // Gap(30.h),
+                        // Text(
+                        //   "Dessert",
+                        //   style: GoogleFonts.inter(
+                        //       fontWeight: FontWeight.w500,
+                        //       fontSize: 16.sp,
+                        //       color: AppColor.white),
+                        // ),
+                        // DropdownButton(items: null, onChanged: null)
                       ],
                     ),
-                    Gap(40.h),
+                    Gap(55.h),
                     Text(
                       "Find the Best Food Around You",
                       style: GoogleFonts.inter(
