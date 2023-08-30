@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant_pos_app/config/colors.dart';
 import 'package:restaurant_pos_app/config/images.dart';
+import 'package:restaurant_pos_app/constants.dart';
 import 'package:restaurant_pos_app/screens/widgets/bg.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
@@ -61,7 +62,7 @@ class ErrorPage extends StatelessWidget {
                     Gap(20.h),
                     Center(
                       child: Text(
-                        'ACCESS DENIED',
+                        Constants.ERROR_HERO,
                         style: GoogleFonts.inter(
                             fontWeight: FontWeight.w800,
                             fontSize: 24.sp,
@@ -70,7 +71,7 @@ class ErrorPage extends StatelessWidget {
                     ),
                     Gap(20.h),
                     Text(
-                      'Please you don\'t have permission\n to Order, please TRY again',
+                      Constants.ERROR_MESSAGE,
                       textAlign: TextAlign.center,
                       style: GoogleFonts.inter(
                         fontSize: 16.sp,

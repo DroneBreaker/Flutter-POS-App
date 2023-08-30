@@ -63,7 +63,7 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
       await Future.delayed(const Duration(seconds: 1));
       GBPosNfc.start();
       cardRead();
-      print('restared');
+      print('restarted');
     });
 
     // Check availability

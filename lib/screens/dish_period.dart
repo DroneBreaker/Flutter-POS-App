@@ -95,7 +95,7 @@ class DishPeriodScreen extends StatelessWidget {
                     ),
                     Gap(50.h),
                     ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
                           // Receipt();
                           // Print();
 
@@ -128,8 +128,13 @@ class DishPeriodScreen extends StatelessWidget {
                               height: 200,
                             );
                           }
+
+                          //printImage().toString();
+                          //printText().toString();
+
+                          print(await _nyxPrinterPlugin.getVersion());
                         },
-                        child: Text('Print')),
+                        child: const Text('Print')),
                     Text(
                       Constants.DISH_PERIOD_FOOTER,
                       style: GoogleFonts.inter(
