@@ -25,7 +25,9 @@ dependencies:
   intl: ^0.18.1
   flutter_gb_pos_nfc: ^0.0.2
   flutter_nfc_kit: ^3.3.1
-  nfc_manager:
+  nfc_manager: ^3.3.0
+  dio: ^5.3.2
+  flutter_secure_storage: ^9.0.0
   
 
 dev_dependencies:

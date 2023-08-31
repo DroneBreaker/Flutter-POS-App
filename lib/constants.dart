@@ -17,4 +17,7 @@ class Constants {
   static const String ORDER_TAKE_OUT = "Take Out";
   static const String ORDER_DINE = "Dine In";
   static const String ORDER_FOOTER = "Thanks for Choosing and Enjoy Your Meal";
+
+  //Server side 
+  static const String hostUrl = "Thanks for Choosing and Enjoy Your Meal";
 }
