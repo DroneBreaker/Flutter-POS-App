@@ -20,26 +20,27 @@ class DatabaseProvider with ChangeNotifier {
 
   Future<Database> initDB() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
-    String path = join(documentsDirectory.path, "order.db");
+    String path = join(documentsDirectory.path, "orderdb.db");
 
     return await openDatabase(path, version: 1,
         onCreate: (Database db, int version) async {
       await db.execute('''
-          CREATE TABLE order (
+          CREATE TABLE orders (
             staff_id TEXT,
             department_id TEXT,
             order_id TEXT PRIMARY KEY,
             order_data TEXT,
-            order_datetime
+            order_for_date DATETIME,
+            order_datetime DATETIME,
             synced BOOLEAN DEFAULT 0
           )
         ''');
     });
   }
 
-  Future<void> insertData(User user) async {
+  Future<void> insertData(order) async {
     final db = await database;
-    await db.insert('users', user.toJson(),
+    await db.insert('orders', order,
         conflictAlgorithm: ConflictAlgorithm.replace);
     notifyListeners();
   }

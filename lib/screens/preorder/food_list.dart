@@ -97,7 +97,7 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
             button1("Done", AppImages.dinner_icon, () {
               Order g = Order(
                   id: "3434",
-                  date: "2023-2-2",
+                  date: widget.date.toString().substring(0, 10),
                   orders: [Orders(type: widget.category, id: "77675")]);
               Provider.of<OrderProvider>(context, listen: false)
                   .addOrder(order: g);

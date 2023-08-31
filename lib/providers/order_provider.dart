@@ -119,8 +119,8 @@ class OrderProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void removeOrder({required String orderID}) {
-    // orderCart.add(Order);
+  void removeOrder({required String date}) {
+    orderCart.removeWhere((o) => o.date == date);
     notifyListeners();
   }
 
