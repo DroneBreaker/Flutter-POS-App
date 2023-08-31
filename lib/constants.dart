@@ -18,6 +18,14 @@ class Constants {
   static const String ORDER_DINE = "Dine In";
   static const String ORDER_FOOTER = "Thanks for Choosing and Enjoy Your Meal";
 
-  //Server side 
-  static const String hostUrl = "Thanks for Choosing and Enjoy Your Meal";
+  // Success screen
+  static const String SUCCESS_HERO = "THANK YOU";
+  static const String SUCCESS_MESSAGE =
+      "Please wait for your\n coupon to be printed";
+
+  // Error screen
+  static const String ERROR_HERO = "ACCESS DENIED";
+  static const String ERROR_MESSAGE =
+      "Please you don't have permission\n to Order, please TRY again"; //Server side
+  static const String hostUrl = "";
 }

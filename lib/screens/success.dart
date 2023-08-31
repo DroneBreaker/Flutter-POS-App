@@ -4,7 +4,9 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant_pos_app/config/colors.dart';
 import 'package:restaurant_pos_app/config/images.dart';
+import 'package:restaurant_pos_app/constants.dart';
 import 'package:restaurant_pos_app/screens/widgets/bg.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class SuccessPage extends StatelessWidget {
   const SuccessPage({super.key});
@@ -18,17 +20,17 @@ class SuccessPage extends StatelessWidget {
             clipper: BgD1(),
             child: Container(
               width: double.infinity,
-              height: 495.h,
+              height: 475.h,
               color: AppColor.PrimaryColor,
             ),
           ),
           SafeArea(
               child: Container(
-            padding: EdgeInsets.only(top: 179.h - 54.h),
+            padding: EdgeInsets.only(top: 139.h - 54.h),
             width: double.infinity,
             child: Column(children: [
               Gap(
-                40.h,
+                10.h,
               ),
               Image.asset(
                 AppImages.dot,
@@ -37,8 +39,8 @@ class SuccessPage extends StatelessWidget {
               ),
               // Success message
               Container(
-                height: 310.h,
-                width: 330.w,
+                height: 330.h,
+                width: 350.w,
                 decoration: BoxDecoration(
                     color: AppColor.white,
                     boxShadow: const [
@@ -51,16 +53,16 @@ class SuccessPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(40)),
                 child: Column(
                   children: [
-                    Gap(40.h),
+                    Gap(20.h),
                     Image.asset(
                       AppImages.verified_icon,
                       width: 73.w,
                       height: 73.h,
                     ),
-                    Gap(25.h),
+                    Gap(20.h),
                     Center(
                       child: Text(
-                        'THANK YOU',
+                        Constants.SUCCESS_HERO,
                         style: GoogleFonts.inter(
                             fontWeight: FontWeight.w800,
                             fontSize: 24.sp,
@@ -69,10 +71,16 @@ class SuccessPage extends StatelessWidget {
                     ),
                     Gap(20.h),
                     Text(
-                      'Please wait for your\n coupon to be printed',
+                      Constants.SUCCESS_MESSAGE,
                       textAlign: TextAlign.center,
                       style: GoogleFonts.inter(
                           fontSize: 16.sp, color: AppColor.black),
+                    ),
+                    Gap(20.h),
+                    QrImageView(
+                      data: '1234567890',
+                      version: QrVersions.auto,
+                      size: 100.0,
                     ),
                   ],
                 ),

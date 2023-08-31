@@ -41,7 +41,7 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
   void initState() {
     super.initState();
 
-    cardRead();
+    // cardRead();
   }
 
   // function to read or listen to the tags
@@ -62,7 +62,7 @@ class _SwipeCardScreenState extends State<SwipeCardScreen> {
       await Future.delayed(const Duration(seconds: 1));
       GBPosNfc.start();
       cardRead();
-      print('restared');
+      print('restarted');
     });
 
     // Check availability

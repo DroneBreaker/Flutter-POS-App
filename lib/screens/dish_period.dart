@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant_pos_app/constants.dart';
+import 'package:restaurant_pos_app/screens/print.dart';
+import 'package:nyx_printer/nyx_printer.dart';
+import 'package:restaurant_pos_app/screens/receipt.dart';
+import 'dart:async';
 
 import '../config/colors.dart';
 import '../config/images.dart';
@@ -14,6 +19,8 @@ class DishPeriodScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _nyxPrinterPlugin = NyxPrinter();
+
     return Scaffold(
         appBar: null,
         extendBodyBehindAppBar: true,
@@ -87,6 +94,47 @@ class DishPeriodScreen extends StatelessWidget {
                       ],
                     ),
                     Gap(50.h),
+                    ElevatedButton(
+                        onPressed: () async {
+                          // Receipt();
+                          // Print();
+
+                          // handling printing imagws by nyx_printer
+                          Future<void> printImage() async {
+                            final image =
+                                await rootBundle.load("images/add.png");
+                            await _nyxPrinterPlugin
+                                .printImage(image.buffer.asUint8List());
+                          }
+
+                          //  handling priniing of text by nyx_printer
+                          Future<void> printText() async {
+                            await _nyxPrinterPlugin.printText(
+                              "Grocery Store",
+                              textFormat: NyxTextFormat(
+                                textSize: 32,
+                                align: NyxAlign.center,
+                                font: NyxFont.monospace,
+                                style: NyxFontStyle.boldItalic,
+                              ),
+                            );
+                          }
+
+                          // handling generating qr codes
+                          Future<void> printQrCode() async {
+                            await _nyxPrinterPlugin.printQrCode(
+                              "123456789",
+                              width: 200,
+                              height: 200,
+                            );
+                          }
+
+                          //printImage().toString();
+                          //printText().toString();
+
+                          print(await _nyxPrinterPlugin.getVersion());
+                        },
+                        child: const Text('Print')),
                     Text(
                       Constants.DISH_PERIOD_FOOTER,
                       style: GoogleFonts.inter(
